@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Login Page</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+    </script>
+    <link type="text/css"  rel="stylesheet" href="CSS/Login.css" media="screen"/>
+    <script type='text/javascript' src="sign.js"></script>
+    <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-inverse-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+            <img  class= "img-circle responsive" src="http://www.cpcc.edu/nacat/2ase_color_dark_blue_logo.jpg" height="60" width="40">
+        </a>
+       </div>
+       <div class="collapse navbar-collapse" id="navbar-inverse-collapse">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://github.com/pruthvi6767/ASEFall16/wiki">Home</a></li>
+            <li><a href="https://github.com/pruthvi6767/ASEFall16/wiki">About</a></li>
+            <li><a href="https://github.com/pruthvi6767/ASEFall16/wiki">Features</a></li>
+           <!-- <li><a href="#">Sign Up</a></li>  -->
+            <li class="active">
+                <button type="button" class="btn btn-primary btn-block glyphicon glyphicon-log-in" onclick="window.location.href='#login'">
+                    <strong>Login</strong></button></li>
+        </ul>
+       </div>
+    </div>
+</nav>
+
+<div class="container">
+
+   <!--<div class="row">
+        <div class="col-md-4">
+            <br/>
+        </div>
+    </div>-->
+
+    <div class="row">
+        <div class=" col-xs-8 col-md-5 col-md-offset-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <span class="glyphicon glyphicon-lock"></span> Login</div>
+                <div class="panel-body">
+                    <form class="form-horizontal" action="Home.html" method="post" role="form">
+                        <div class="form-group">
+                           <!-- <label for="inputEmail3" class="col-sm-3 control-label">
+                                Email</label>-->
+                            <div class="col-sm-9 col-md-offset-2">
+                                <input type="email" class="form-control" id="Email" placeholder="Email"  required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                           <!-- <label for="inputPassword3" class="col-sm-3 control-label">
+                                Password</label>-->
+                            <div class="col-sm-9 col-md-offset-2">
+                                <input type="password" class="form-control" id="Password" placeholder="Password" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-9">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"/>
+                                        Remember me
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group last">
+                            <div class="col-sm-offset-3 col-sm-9">
+                                <button type="submit" class="btn btn-success btn-sm" onclick="check()">
+                                    Sign in</button>
+                                <button type="reset" class="btn btn-default btn-sm">
+                                    Reset</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="panel-footer">
+                    Not Registred? <a href=" Register.html">Register here</a></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

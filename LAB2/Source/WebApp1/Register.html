@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Login Page</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+    </script>
+
+    <link type="text/css"  rel="stylesheet" href="CSS/Signup.css" media="screen"/>
+    <script type='text/javascript' src="sign.js"></script>
+    <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-inverse-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        <a class="navbar-brand" href="index.html">
+            <img  class= img-circle src="http://www.cpcc.edu/nacat/2ase_color_dark_blue_logo.jpg" height="60" width="40">
+        </a>
+    </div>
+    <div class="navbar-collapse collapse navbar-inverse-collapse">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://github.com/pruthvi6767/ASEFall16/wiki">Home</a></li>
+            <li><a href="https://github.com/pruthvi6767/ASEFall16/wiki">About</a></li>
+            <li><a href="https://github.com/pruthvi6767/ASEFall16/wiki">Features</a></li>
+            <!-- <li><a href="#">Sign Up</a></li>  -->
+            <li><a href="index.html">Log in</a></li>
+        </ul>
+    </div>
+</div>
+</nav>
+<div class="container-fluid" >
+
+
+    <!-- <button type="button" class="btn btn-success" data-toggle="modal" data-target="#popupwindow">Register Here</button>
+    <div class="modal fade" id="popupwindow">
+        <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal">&timex</button>
+              </div>
+              <div class="modal-body">
+
+               <div class="col-xs-12 col-md-5 col-md-offset-5">
+                 <form role="form">
+                     <div class="form-group">
+                         <input type="email" class="form-control" placeholder="Email">
+                     </div>
+                     <div class="form-group">
+                         <input type="password" class="form-control" placeholder="Password">
+                     </div>
+                 </form>
+               </div>
+              <div class="modal-footer">
+                 <button class="btn btn-success btn-round">Submit</button>
+              </div>
+         </div>
+        </div>-->
+     <div class="row">
+     <div class=" col-xs-10 col-md-5 col-md-offset-4">
+         <div class="panel panel-info">
+             <div class="panel-heading">
+                 <span class="glyphicon glyphicon-user"></span> Create Account</div>
+             <div class="panel-body">
+                 <form class="form-horizontal" role="form">
+                     <div class="form-group">
+                         <div class="col-sm-9 col-md-offset-2">
+                             <input type="text" class="form-control" id="fullname" placeholder="Full Name"  required>
+                         </div>
+                     </div>
+                     <div class="form-group">
+                         <div class="col-sm-9 col-md-offset-2">
+                             <input type="email" class="form-control" id="inputEmail" placeholder="Email"  required>
+                         </div>
+                     </div>
+                     <div class="form-group">
+                         <div class="col-sm-6 col-md-offset-2">
+                             <input type="password" class="form-control" id="inputPassword" placeholder="Password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}" required>
+                         </div>
+                     </div>
+                     <!--<div class="form-group"></div>
+                     <div class="pwstrength_viewport_progress col-sm-6 col-md-offset-2"> </div>-->
+
+                     <div class="form-group">
+                       <div class="col-sm-6 col-md-offset-2">
+                         <input type="password" class="form-control" id="inputPassword1" placeholder="Confirm Password" required>
+                       </div>
+                      </div>
+
+                     <div class="form-group last">
+                         <div class="col-sm-offset-3 col-sm-9">
+                             <button type="submit" class="btn btn-success btn-lg" value="submit" onclick="store()">Sign Up </button>
+                         </div>
+                     </div>
+                 </form>
+             </div>
+             <div class="panel-footer">
+                 <!--Not Registred? <a href=" Register.html">Register here</a></div>-->
+         </div>
+     </div>
+ </div>
+</div>
+
+</div>
+</body>
+</html>
