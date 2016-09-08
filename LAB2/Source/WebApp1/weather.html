@@ -82,10 +82,10 @@
     <div class="row">
         <div class="col-md-12"></div>
         <div class="col-md-5">
-          <p align="center">
-                <!--<input type="text" ng-model="cityName" id="textData" placeholder="Enter Your City Name">-->
-              <input class="btn btn-success btn-m " type="button" value="GetDetails" ng-click="funGet()">
-          </p>
+            <!--<p align="center">
+                  <input type="text" ng-model="cityName" id="textData" placeholder="Enter Your City Name">
+                <input class="btn btn-success btn-m " type="button" value="GetDetails" ng-click="funGet()">
+            </p>-->
         </div>
         </div>
     <div class="row">
@@ -93,9 +93,9 @@
         <div class="col-md-2 container-fluid" id="whtrContent" ng-init="load()">
             <h1 align="center">{{ origin }}</h1>
             <hr/>
-            <p align="center"><img src="http://openweathermap.org/img/w/{{ imgCode }}.png"></p>
-            <h1 align="center" class="cityName"> {{ tmp | number : 1 }}°C </h1>
-            <p align="center"><span class="temp"> Min Temp :  {{minTemp | number : 1 }}°C </span><span class="temp"> Max Temp :  {{maxTemp | number : 1 }}°C </span>
+            <p align="center"><img src="http://openweathermap.org/img/w/{{ imgCode1 }}.png"></p>
+            <h1 align="center" class="cityName"> {{ tmp1 | number : 1 }}°C </h1>
+            <p align="center"><span class="temp"> Min Temp :  {{minTemp1 | number : 1 }}°C </span><span class="temp"> Max Temp :  {{maxTemp1 | number : 1 }}°C </span>
             </p>
             <br>
         </div>
@@ -103,9 +103,9 @@
         <div class="col-md-2 container-fluid" id="whtrContent1">
             <h1 align="center">{{ destination }}</h1>
             <hr/>
-            <p align="center"><img src="http://openweathermap.org/img/w/{{ imgCode }}.png"></p>
-            <h1 align="center" class="cityName"> {{ tmp | number : 1 }}°C </h1>
-            <p align="center"><span class="temp"> Min Temp :  {{minTemp | number : 1 }}°C </span><span class="temp"> Max Temp :  {{maxTemp | number : 1 }}°C </span>
+            <p align="center"><img src="http://openweathermap.org/img/w/{{ imgCode2 }}.png"></p>
+            <h1 align="center" class="cityName"> {{ tmp2 | number : 1 }}°C </h1>
+            <p align="center"><span class="temp"> Min Temp :  {{minTemp2 | number : 1 }}°C </span><span class="temp"> Max Temp :  {{maxTemp2 | number : 1 }}°C </span>
             </p>
             <br>
         </div>
