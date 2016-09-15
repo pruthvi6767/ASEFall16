@@ -1,0 +1,18 @@
+body {
+    background-image:url(http://www.angry-frog.com/angry/wp-content/uploads/2014/10/cover-background-1400w.jpg);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+#poster{
+    width: 250px;
+    height: 250px;
+
+}
+.ent{
+    font-family: sans-serif;
+    font-size:smaller;
+    font-style: inherit;
+    color:darkblue;
+}

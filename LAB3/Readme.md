@@ -1,7 +1,4 @@
-This lab2 directory is an  assignment of developing a simple  social login, REST Services based web application.
-The Document contains all the screenshots and wireframes of the application
-The source directory consists all the code 
-Languages used are - html5, css3, Bootstrap3, Javascript, Jquery and most importantly Angularjs.
-
-The google map API and weather API are built on top of Angularjs. 
-The challenges faced were the dependency injection in angular js 
+This lab3 directory is an  assignment to develope a mashup application using REST API's atleast one being from the knowledge base api's and also featuring social login such as google and facebook.The Document contains all the screenshots and wireframes of the application
+The source directory consists all the code used - html5, css3, Bootstrap3, Javascript and most importantly Angularjs.
+ 
+The mashup application consists of "movie search by title" service using "TMDB API" with Clarifai API as the knowledge service API which is used to analyze the resulting movie poster and determine the tags using the poster.

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no,text/html;charset=utf-8" >
+    <title>Title</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+    </script>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js" type="application/javascript"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="log.css">
+</head>
+
+<body ng-app="myApp">
+<div  ng-controller="search">
+    <div class="container">
+        <div class="row" style="width: 40%; margin: 0px auto;">
+
+            <br>
+            <br>
+            <br>
+            <br>
+       <input  type=text class="formcontrol input-lg " ng-model="mtitle" placeholder=" Movie title here" >
+        <button type="button" class="btn btn-info" ng-click="findMovie()">
+        <span class="glyphicon glyphicon-search"></span> Search
+         </button>
+
+         <button class="btn btn-success " ng-click="findtags()"> Entities </button>
+
+        </div>    <!--<input type=text class=" pull-right formcontrol input-sm" ng-model="mtitle" placeholder=" title for tags" >-->
+        <p class="ent">
+            <strong></strong>
+        </p>
+        <img class="img-circle" id="poster" src={{img}} />
+            <div class="alert alert-danger col-md-9 pull-right"> <strong>Poster Object Tags</strong>
+                <p class="alert alert-success" role="alert">
+                         {{entities}}
+                </p>
+                   <br>
+                  <p class="alert alert-info col-md-12 pull-right" role="alert">  <strong>Title: {{Title}}</strong><br>
+                    <span class="glyphicon glyphicon-heart"></span> Popularity: {{Popularity}}<br>
+                    <span class="glyphicon glyphicon-calendar"></span> Release Date: {{Releasedon}}<br>
+                    <span class="glyphicon glyphicon-thumbs-up"></span> Liked: {{Liked}}<br>
+                     Story Line: {{Storyline}}
+                </p>
+            </div>
+            </div>
+        </div>
+        <div class="row">
+
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
