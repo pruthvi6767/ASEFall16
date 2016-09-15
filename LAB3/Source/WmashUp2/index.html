@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-<script src="glogin.js"></script>
+
 <script>
     // This is called with the results from from FB.getLoginStatus().
     function statusChangeCallback(response) {
@@ -125,10 +125,10 @@
                     </a>
                 </div>-->
                 <div class="col-xs-4 col-sm-3">
-                    <a href="#" id="authorize-button"  class="btn btn-lg btn-block omb_btn-google">
-                        <i class="fa fa-google-plus visible-xs"></i>
+                    <button  id="authorize-button"  class="btn btn-lg btn-block omb_btn-google">
+                       <!-- <i class="fa fa-google-plus visible-xs"></i>-->
                         <span class="hidden-xs">Google+</span>
-                    </a>
+                    </button>
                 </div>
             </div>
 
@@ -172,6 +172,80 @@
             </div>
         </div>
     </div>
-    <script src="https://apis.google.com/js/api.js?onload=handleClientLoad"></script>
+
+</div>
+<script src="glogin.js"></script>
+<script>
+    // Enter an API key from the Google API Console:
+    //   https://console.developers.google.com/apis/credentials?project=_
+    var apiKey = 'AIzaSyAgBaFDmsHfrN0x87KKzn-yKAmPkC1LBy8';
+    // Enter a client ID for a web application from the Google API Console:
+    //   https://console.developers.google.com/apis/credentials?project=_
+    // In your API Console project, add a JavaScript origin that corresponds
+    //   to the domain where you will be running the script.
+    var clientId = '932868402083-cb2f0pbdd30n2816s9bu4p28n7qo83e3.apps.googleusercontent.com';
+    // Enter one or more authorization scopes. Refer to the documentation for
+    // the API or https://developers.google.com/identity/protocols/googlescopes
+    // for details.
+    var scopes = 'profile';
+    var auth2; // The Sign-In object.
+    var authorizeButton = document.getElementById('authorize-button');
+    // var signoutButton = document.getElementById('signout-button');
+    function handleClientLoad() {
+        // Load the API client and auth library
+        gapi.load('client:auth2', initAuth);
+    }
+    function initAuth() {
+        gapi.client.setApiKey(apiKey);
+        gapi.auth2.init({
+            client_id: clientId,
+            scope: scopes
+        }).then(function () {
+            auth2 = gapi.auth2.getAuthInstance();
+            // Listen for sign-in state changes.
+            auth2.isSignedIn.listen(updateSigninStatus);
+            // Handle the initial sign-in state.
+            updateSigninStatus(auth2.isSignedIn.get());
+            authorizeButton.onclick = handleAuthClick;
+            //signoutButton.onclick = handleSignoutClick;
+        });
+    }
+    function updateSigninStatus(isSignedIn) {
+        if (isSignedIn) {
+            authorizeButton.style.display = 'none';
+            window.location.href='home.html';
+            // signoutButton.style.display = 'block';
+            makeApiCall();
+        } else {
+            authorizeButton.style.display = 'block';
+            //signoutButton.style.display = 'none';
+        }
+    }
+    function handleAuthClick(event) {
+        auth2.signIn();
+    }
+    function handleSignoutClick(event) {
+        auth2.signOut();
+    }
+    // Load the API and make an API call.  Display the results on the screen.
+    function makeApiCall() {
+        gapi.client.load('people', 'v1', function() {
+            var request = gapi.client.people.people.get({
+                resourceName: 'people/me'
+            });
+            request.execute(function(resp) {
+                var p = document.createElement('p');
+                var name = resp.names[0].givenName;
+                p.appendChild(document.createTextNode('Hello, '+name+'!'));
+                document.getElementById('content').appendChild(p);
+            });
+        });
+        // Note: In this example, we use the People API to get the current
+        // user's name. In a real app, you would likely get basic profile info
+        // from the GoogleUser object to avoid the extra network round trip.
+        console.log(auth2.currentUser.get().getBasicProfile().getGivenName());
+    }
+</script>
+<script src="https://apis.google.com/js/api.js?onload=handleClientLoad"></script>
 </body>
 </html>

@@ -2,7 +2,12 @@
  * Created by pruthvirajreddy on 9/14/2016.
  */
 
-// Enter an API key from the Google API Console:
+//<button id="authorize-button" style="display: none;">Authorize</button>
+    //<button id="signout-button" style="display: none;">Sign Out</button>
+
+
+
+   // Enter an API key from the Google API Console:
 //   https://console.developers.google.com/apis/credentials?project=_
 var apiKey = 'AIzaSyAgBaFDmsHfrN0x87KKzn-yKAmPkC1LBy8';
 // Enter a client ID for a web application from the Google API Console:
@@ -16,7 +21,7 @@ var clientId = '932868402083-cb2f0pbdd30n2816s9bu4p28n7qo83e3.apps.googleusercon
 var scopes = 'profile';
 var auth2; // The Sign-In object.
 var authorizeButton = document.getElementById('authorize-button');
-var signoutButton = document.getElementById('signout-button');
+// var signoutButton = document.getElementById('signout-button');
 function handleClientLoad() {
     // Load the API client and auth library
     gapi.load('client:auth2', initAuth);
@@ -33,17 +38,18 @@ function initAuth() {
         // Handle the initial sign-in state.
         updateSigninStatus(auth2.isSignedIn.get());
         authorizeButton.onclick = handleAuthClick;
-        signoutButton.onclick = handleSignoutClick;
+        //signoutButton.onclick = handleSignoutClick;
     });
 }
 function updateSigninStatus(isSignedIn) {
     if (isSignedIn) {
         authorizeButton.style.display = 'none';
-        signoutButton.style.display = 'block';
+        window.location.href='home.html';
+        // signoutButton.style.display = 'block';
         makeApiCall();
     } else {
         authorizeButton.style.display = 'block';
-        signoutButton.style.display = 'none';
+        //signoutButton.style.display = 'none';
     }
 }
 function handleAuthClick(event) {
