@@ -1,0 +1,311 @@
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IM WORD</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/form-elements.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="css/creative.min.css" rel="stylesheet">
+    <script src="https://apis.google.com/js/api:client.js"></script>
+
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+
+
+    <script>
+        var googleUser = {};
+        var startApp = function () {
+            gapi.load('auth2', function () {
+                // Retrieve the singleton for the GoogleAuth library and set up the client.
+                auth2 = gapi.auth2.init({
+                    client_id: '416123897139-73umcr2tnq2iopiua2j1hsqq3gifafju.apps.googleusercontent.com',
+                    cookiepolicy: 'single_host_origin',
+                    // Request scopes in addition to 'profile' and 'email'
+                    //scope: 'additional_scope'
+                });
+                attachSignin(document.getElementById('customBtn'));
+            });
+        };
+
+        function attachSignin(element) {
+            console.log(element.id);
+            auth2.attachClickHandler(element, {},
+                    function (googleUser) {
+                        document.getElementById('name').innerText = "Signed in: " +
+                                googleUser.getBasicProfile().getName();
+                    }, function (error) {
+                        alert(JSON.stringify(error, undefined, 2));
+                    });
+        }
+    </script>
+
+    <style type="text/css">
+
+        #customBtn:hover {
+            cursor: pointer;
+        }
+
+        .ab {
+            min-height: auto;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            background-size: cover;
+            -o-background-size: cover;
+            background-position: center;
+            background-image: url(img/check.jpg);
+            color: #fff
+        }
+
+    </style>
+</head>
+<body class="ab" ng-app ng-controller="LoginController">
+<!-- In the callback, you would hide the gSignInWrapper element on a
+successful sign in -->
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand page-scroll" href="#page-top" style="color: whitesmoke">IM WORD</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right" >
+                <li>
+                    <a class="page-scroll" href="login.html" style="color: whitesmoke">Login</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="register.html" style="color: whitesmoke">Register</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#contact" style="color: whitesmoke">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+<br/>
+<br/>
+<div class="top-content">
+    <div class="inner-bg">
+        <div class="container">
+            <div class="row">
+
+                <div class="form-module">
+                    <div class="form-box">
+                        <div class="form-top">
+                            <div class="form-top-left">
+                                <h3><span class="glyphicon glyphicon-lock"></span>  <b>Login</b></h3>
+
+                                <p style="color: #0b0b0b;">Enter username and password to log on:</p>
+                            </div>
+
+                        </div>
+                        <div class="form-bottom">
+                            <form role="form" action="home.html" method="post" class="login-form" name="myForm"
+                                  onsubmit="return validate()">
+                                <div class="form-group">
+                                    <label class="sr-only" for="form-username" style="color: #0b0b0b;">Email Id</label>
+                                    <input type="text" name="username" placeholder="Email Id..."
+                                           class="form-username form-control" id="form-username">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="form-password" style="color: #0b0b0b">Password</label>
+                                    <input type="password" name="pwd" placeholder="Password..."
+                                           class="form-password form-control" id="form-password">
+                                </div>
+                                <div class="checkbox" style="color: #0b0b0b">
+                                    <label><input type="checkbox" checked> Remember me</label>
+                                </div>
+                                <button type="submit" class="btn">Log In</button>
+                                <br/>
+                            </form>
+
+                            <p align="center" style="color: #0b0b0b;font-family: Calibri"><b>Not yet Member?</b><a
+                                    href="register.html"
+                                    style="background-color: transparent"> <b>Click here to
+                                register</b></a></p>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+            <div class="social-login">
+                <div class="social-login-buttons">
+
+                    <a id="customBtn" class="customGPlusSignIn button button-link-1 button-link-1-google-plus" href="#">
+                        <i class="fa fa-google-plus"></i> Google Plus</a>
+                    <script>startApp();</script>
+                    <a class="button button-link-1 button-link-1-facebook" href="#" onclick="tLogin()">
+                        <i class="fa fa-facebook"></i> Facebook
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<br/>
+<!-- Footer -->
+<footer>
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+            <div class="footer-border"></div>
+            <p>Copyright @ UMKC Team 7 <i class="fa fa-smile-o"></i></p>
+        </div>
+    </div>
+</footer>
+
+<!-- Javascript -->
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="js/jquery.backstretch.min.js"></script>
+<script src="js/scripts.js"></script>
+
+<script src="js/placeholder.js"></script>
+
+<script>
+    function LoginController($scope) {
+        $scope.logins = [];
+        $scope.login = function (user, pwd) {
+            localStorage.setItem("password", pwd);
+            localStorage.setItem("username", user);
+            $scope.logins.push(localStorage.getItem("name") + " was logged in.");
+        };
+    }
+</script>
+
+<script type="text/javascript">
+    var valid = false;
+
+    function validate() {
+        var msg = "";
+
+        var uname = document.myForm.username.value;
+        var pwd = document.myForm.pwd.value;
+        if (uname.length == 0 && pwd.length == 0)
+            msg = msg + "Please enter username and password \n";
+        else if (pwd.length == 0)
+            msg = msg + "Please enter password \n";
+        else if (uname.length == 0)
+            msg = msg + "Please enter username \n";
+
+        if (msg.length > 0) {
+            window.alert(msg);
+            valid = false;
+        }
+        else
+            valid = true;
+        return valid;
+    }
+
+    function registration() {
+        var msg = "";
+
+        var fname = document.regmyForm.fname.value;
+        var lname = document.regmyForm.lname.value;
+        var email = document.regmyForm.email.value;
+        var user = document.regmyForm.username.value;
+        var pwd = document.regmyForm.pwd.value;
+        var repwd = document.regmyForm.repwd.value;
+        if (fname.length == 0 && lname.length == 0 && email.length == 0 && user.length == 0 && pwd.length == 0 && repwd.length == 0)
+            msg = msg + "Please enter all the fields to have successful registration \n";
+        if (msg.length > 0) {
+            window.alert(msg);
+            valid = false;
+        }
+        else
+            valid = true;
+        return valid;
+    }
+
+    function logInAct() {
+        if (document.getElementById("username").value.length > 0 && document.getElementById("password").value.length > 0) {
+            window.location.href = 'home.html';
+        }
+        else
+            alert("Give all details");
+    }
+
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: '1415062328510630',
+            xfbml: true,
+            version: 'v2.7'
+        });
+    };
+
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {
+            return;
+        }
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    function tLogin() {
+        FB.login(function (response) {
+                    if (response.authResponse) {
+                        // document.getElementById('login').style.visibility=false;
+                        getInfo();
+                    } else {
+                        console.log('User cancelled login or did not fully authorize.');
+                    }
+                }, {scope: 'email'}
+        );
+    }
+    function getInfo() {
+        FB.api('/me', function (response) {
+                    console.log(response.name.toString());
+                    var str = "<b>Name</b> : " + response.name + "<br>";
+                    str += "<b>Link: </b>" + response.link + "<br>";
+                    str += "<b>Username:</b> " + response.username + "<br>";
+                    str += "<b>id: </b>" + response.id + "<br>";
+                    str += "<b>Email:</b> " + response.email + "<br>";
+                    str += "<input type='button' value='Get Photo' onclick='getPhoto();'/>";
+                    str += "<input type='button' value='Logout' onclick='Logout();'/>";
+                    document.getElementById('status').innerHTML = "Connected";
+                    var name = response.name;
+                    console.log(name)
+                    localStorage.setItem("Name", name);
+                }
+        );
+        //document.getElementById('home').innerHTML =  document.getElementById('status').value;
+        window.location.href = 'home.html';
+    }
+    function navigate() {
+        var str = document.getElementById('status').value;
+        document.getElementById('home').innerHTML = str.toString();
+        window.location.href = 'home.html';
+    }
+    function Logout() {
+        FB.logout(function () {
+            document.location.reload();
+        });
+    }
+
+</script>
+
+</body>
+
+</html>
