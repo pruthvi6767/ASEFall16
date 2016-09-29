@@ -1,0 +1,1 @@
+The directory consists of the screencasts of the mashup application developed.
