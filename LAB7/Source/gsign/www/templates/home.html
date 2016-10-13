@@ -1,0 +1,17 @@
+<ion-view title="Firebase Login">
+  <ion-content>
+    <button class="button button-assertive button-block" ng-click="LoginGoogle()" ng-hide="showProfile">Login with Google</button>
+    <button class="button button-assertive button-block" ng-click="facebookLogin()" ng-hide="showProfile">Login with Facebook</button>
+
+
+
+    <div  ng-show="showProfile" class="list">
+      <a class="item item-avatar" href="#">
+        <img ng-src="{{pimage}}">
+        <h2>{{displayName}}</h2>
+
+      </a>
+
+  </div>
+</ion-content>
+</ion-view>
