@@ -144,6 +144,28 @@ angular.module('app.controllers', ['firebase'])
         sharedUtils.showAlert("Please note", "Entered data is not valid");
       }
     }
+
   })
 
-  
+
+  .controller('logoCtrl',
+    function ($scope,$http, $rootScope, $stateParams, $location, $ionicViewService, $state ) {
+
+      $rootScope.extras = true;
+
+      $scope.squery = function () {
+        console.log($scope.valuesearch);
+        var url = 'http://api.fullcontact.com/v2/company/lookup.json?apiKey=c9119ae197c5e22a&domain=cerner.com'//+($scope.valuesearch)
+        $http.get(url)
+          .success(function (response) {
+            console.log(response);
+            $scope.Name = response.organization.name;
+            $scope.logourl = response.logo;
+            $scope.website = response.website;
+            $scope.category = response.category[0].name;
+            $scope.services = response.organization.keywords[0];
+            $scope.founded = response.founded;
+
+          })
+      }
+    })
