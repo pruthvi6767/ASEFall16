@@ -1,0 +1,45 @@
+<ion-view style="" class=" " id="page5" title="IM WORD" xmlns="http://www.w3.org/1999/html">
+  <ion-nav-buttons side="right">
+    <button class="button button-icon button-clear ion-person"></button>
+  </ion-nav-buttons>
+  <ion-content class="has-header" padding="true"
+               style="background: url(img/bg-img.jpg) center; background-size: cover;">
+    <br/>
+    <br/>
+    <div class="app-icon"></div>
+    <br/>
+    <form name="loginForm" class="list " id="login-form1" style="border-radius: 10px;background-color: #f2f2f2">
+
+      <form>
+        <ion-list id="login-list2">
+          <label class="item item-input" id="login-input3">
+            <!--<span class="input-label">Email Id</span>-->
+            <i class="icon ion-email"></i>&nbsp;&nbsp; <input type="email" placeholder="Email" ng-model="user.email">
+          </label>
+          <label class="item item-input" id="login-input4">
+            <!--<span class="input-label">Password</span>-->
+            <i class="icon ion-locked"></i>&nbsp;&nbsp; <input type="password" ng-model="user.password" placeholder="Password">
+          </label>
+        </ion-list>
+      </form>
+
+
+      <button ng-click="loginEmail(loginForm,user)"
+              class=" button button-assertive  button-block  icon-left ion-log-in " id="signup-button3"
+              style="background-color: #009689;color: whitesmoke">LOGIN WITH EMAIL
+      </button>
+
+      <div align="center">
+        <button ng-click="oauthLogin('facebook')"
+                class=" button button-positive  button-block icon-left ion-social-facebook " id="signup-button4"
+                style="width: 160px">FACEBOOK
+        </button>
+        <button ng-click="LoginGoogle()" class=" button button-positive  button-block icon-left ion-social-google "
+                id="lOGIN-button16" style="background-color: #F44336;width: 160px">GOOGLE
+        </button>
+      </div>
+    </form>
+
+
+  </ion-content>
+</ion-view>
