@@ -61,10 +61,9 @@ function ($scope, $stateParams, $ionicViewService,$state, $location ) {
 
 }])
 
-.controller('pageCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
+.controller('pageCtrl', ['$scope', '$stateParams','$http',// You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams,$location, $ionicViewService,$state, $http) {
+function ($scope,$http, $stateParams,$state ) {
   if(window.localStorage.getItem("paswrd1") == "undefined" || window.localStorage.getItem("paswrd1") == null) {
     // $ionicViewService.nextViewOptions({
     //  disableAnimate: true,
@@ -73,8 +72,8 @@ function ($scope, $stateParams,$location, $ionicViewService,$state, $http) {
     window.location.href = "#/login";
   }
 
-    $scope.squery=function () {
-       var url= " https://api.fullcontact.com/v2/company/lookup.json?apiKey=c9119ae197c5e22a&domain="+$scope.qinp+"";
+    $scope.squery = function () {
+       var url= " http://api.fullcontact.com/v2/company/lookup.json?apiKey=c9119ae197c5e22a&domain="+($scope.qinp);
       $http.get(url)
         .success(function (response) {
           console.log(response);

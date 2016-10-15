@@ -32,7 +32,7 @@ angular.module('app.routes', [])
    .state('page', {
     url: '/page',
     templateUrl: 'templates/page.html',
-    controller: 'pageCtrl',
+    controller: 'pageCtrl'
    })
 
 $urlRouterProvider.otherwise('/page')
