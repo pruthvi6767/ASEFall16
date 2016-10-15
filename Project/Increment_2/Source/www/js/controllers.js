@@ -60,6 +60,34 @@ angular.module('app.controllers', ['firebase'])
         }
       )
     };
+    $scope.facebookLogin= function(){
+      console.log("clicked");
+      $cordovaOauth.facebook("380495482340209", ["email"]).then(function(result) {
+        // alert("Auth Success..!!"+result);
+        $scope.showProfile = false;
+
+        $http.get("https://graph.facebook.com/me", {
+          params: {
+            access_token: result.access_token
+          }
+        })
+          .then(function(res) {
+            console.log(res);
+            $scope.displayName=res.data.name;
+            $scope.pimage="http://graph.facebook.com/v2.8/"+res.data.id+"/picture";
+            console.log($scope.displayName);
+            console.log( $scope.pimage);
+            $scope.showProfile=true;
+
+
+          }, function(error) {
+            alert("Error: " + error);
+          });
+        $state.go("home");
+      }, function(error) {
+        alert("Auth Failed..!!"+error);
+      });
+    };
 
     $scope.LoginGoogle = function () {
       $cordovaOauth.google("868365513982-jpddd0qmui68otu80663ii4jpc7g9hkf.apps.googleusercontent.com",
@@ -169,3 +197,53 @@ angular.module('app.controllers', ['firebase'])
           })
       }
     })
+
+  .controller('menu2Ctrl', function ($scope, $rootScope, $ionicSideMenuDelegate, fireBaseData, $state,
+                                     $ionicHistory, $firebaseArray, sharedCartService, sharedUtils) {
+
+    //Check if user already logged in
+    firebase.auth().onAuthStateChanged(function (user) {
+      if (user) {
+        $scope.user_info = user; //Saves data to user_info
+      } else {
+
+        $ionicSideMenuDelegate.toggleLeft(); //To close the side bar
+        $ionicSideMenuDelegate.canDragContent(false);  // To remove the sidemenu white space
+
+        $ionicHistory.nextViewOptions({
+          historyRoot: true
+        });
+        $rootScope.extras = false;
+        sharedUtils.hideLoading();
+        $state.go('tabsController.login', {}, {location: "replace"});
+
+      }
+    });
+
+    // On Loggin in to menu page, the sideMenu drag state is set to true
+    $ionicSideMenuDelegate.canDragContent(true);
+    $rootScope.extras = true;
+
+    // When user visits A-> B -> C -> A and clicks back, he will close the app instead of back linking
+    $scope.$on('$ionicView.enter', function (ev) {
+      if (ev.targetScope !== $scope) {
+        $ionicHistory.clearHistory();
+        $ionicHistory.clearCache();
+      }
+    });
+
+
+    $scope.loadMenu = function () {
+      sharedUtils.showLoading();
+      $scope.menu = $firebaseArray(fireBaseData.refMenu());
+      sharedUtils.hideLoading();
+    }
+
+    $scope.showProductInfo = function (id) {
+
+    };
+    $scope.addToCart = function (item) {
+      sharedCartService.add(item);
+    };
+
+  })
