@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="twitter-bootstrap-v2/docs/assets/js/bootstrap-transition.js"></script>
+    <link rel="stylesheet" href="../mycss.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+    <script src="../transition.js"></script>
+</head>
+<body>
+<div class="carousel fade-carousel slide" data-ride="carousel" data-interval="30000" id="bs-carousel">
+    <!-- Overlay -->
+    <div class="overlay"></div>
+
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#bs-carousel" data-slide-to="1"></li>
+        <li data-target="#bs-carousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+        <div class="item slides active">
+            <div class="slide-1"></div>
+            <div class="hero">
+                <hgroup>
+                    <h1>WELCOME</h1>
+                    <h5>Slide to Login and Register</h5>
+                </hgroup>
+                <!--<button class="btn btn-hero btn-lg" role="button" ng-click="#">See all features</button>-->
+            </div>
+
+
+
+        </div>
+        <div class="item slides">
+            <div class="slide-2"></div>
+            <div class="hero">
+                <div class="login-box">
+                    <form id="loginForm" action="#" method="POST">
+                        <div cxlass="panel panel-default">
+                            <div class="panel-heading"><b>Sign in</b> <span class="glyphicon glyphicon-pencil pull-right" aria-hidden="true"></span></div>
+                            <div class="panel-body">
+                                <div class="form-group has-primary has-feedback">
+                                    <label class="control-label" for="login">Login <span class="regForm text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="login" id="login" aria-describedby="login" required>
+                                    <span class="glyphicon glyphicon-user form-control-feedback" aria-hidden="true"></span>
+                                </div>
+                                <div class="form-group has-primary has-feedback">
+                                    <label class="control-label" for="password">Password <span class="regForm text-danger">*</span></label>
+                                    <input type="password" class="form-control" name="password" id="password" aria-describedby="password" required>
+                                    <span class="glyphicon glyphicon-lock form-control-feedback" aria-hidden="true"></span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+
+                <button class="btn btn-hero btn-lg" role="button" > Log in</button>
+            </div>
+            </div>
+        <div class="item slides">
+            <div class="slide-3"></div>
+            <div class="hero">
+                <!--<hgroup>
+                    <h1>We are amazing</h1>
+                    <h3>Get start your next awesome project</h3>
+                </hgroup>-->
+                <div class="container" >
+                    <div class="col-md-12" >
+                        <div id="logbox"  >
+                            <form id="signup" method="post" action="/signup" >
+                                <br>
+                                <h3><strong>Create an Account</strong></h3><br><br>
+                                <input name="user[email]" type="email" placeholder="Email " class="input pass"/>
+                                <input name="user[password]" type="password" placeholder="Choose a password" required="required" class="input pass"/>
+                                <input name="user[password2]" type="password" placeholder="Confirm password" required="required" class="input pass"/>
+                                <input type="submit" value="Sign me up!" class="inputButton"/>
+
+                            </form>
+                        </div>
+                    </div>
+                    <!--col-md-6-->
+
+
+                </div>
+                <!--<button class="btn btn-hero btn-lg" role="button" ng-click="#">See all features</button>-->
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
