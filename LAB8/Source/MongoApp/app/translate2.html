@@ -43,10 +43,10 @@
     <br>
     <div class="row">
 
-    <div ng-hide="set" class="col-md-4-offset-0 pull-left">
-        <p  class="speech">{{German}}Hallo</p>
+    <div ng-show="set" class="col-md-4-offset-0 pull-left">
+        <p  class="speech">{{German}}</p>
     </div>
-    <div  ng-hide="!set" class="col-md-4-offset-0 pull-right"><p   class="speechReflect">{{English}} Hello</p>
+    <div  ng-show="set1" class="col-md-4-offset-0 pull-right"><p   class="speechReflect">{{English}} </p>
     </div>
     </div>
     <div class="row">
@@ -70,7 +70,21 @@
         <span class="input-group-btn">
             <button class="btn btn-success" type="button" ng-click="getEnglish(chatText)">English</button>
 
-            <button class="btn btn-danger" type="button" ng-click="getGerman()">German</button>
+            <button class="btn btn-danger" type="button" ng-click="getGerman(chatText)">German</button>
+
+        </span>
+</div>
+        <div class="input-group  col col-pull-4" >
+            <div class="form-group  has-feedback">
+                <input type="text" class="form-control" ng-model="cvalue" >
+                <span class="glyphicon glyphicon-value form-control-feedback" aria-hidden="true"></span>
+            </div>
+    </div>
+        <span class="input-group-btn">
+            <button class="btn btn-success" type="button" ng-click="getDollars(cvalue)">Dollar</button>
+
+            <button class="btn btn-danger" type="button" ng-click="getEuros(cvalue)">Euros</button>
+
         </span>
 </div>
     </div>

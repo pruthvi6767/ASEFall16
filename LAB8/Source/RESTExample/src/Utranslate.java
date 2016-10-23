@@ -10,6 +10,8 @@ import javax.ws.rs.core.Response;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -37,62 +39,71 @@ public class Utranslate {
 	        String to="en";
 	        String from="de";
 	        
-	       
-	            StringBuilder result = new StringBuilder();
-	            try {
-	            	 String Output;
-	                String encodedText = URLEncoder.encode(text, "UTF-8");
-	                String urlStr = "https://www.googleapis.com/language/translate/v2?key=" + key + "&q=" + encodedText + "&target=" + to + "&source=" + from;
-	     
-	                URL url = new URL(urlStr);
-	     
-	                HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
-	                InputStream stream;
-	                if (conn.getResponseCode() == 200) //success
-	                {
-	                    stream = conn.getInputStream();
-	                    //System.out.println(stream);
-	                } else
-	                    stream = conn.getErrorStream();
-	                
-	                BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
-	                String line;
-	                while ((line = reader.readLine()) != null) {
-	                    result.append(line);
-	                                   
-	                }
-	                System.out.println(result.toString());
-	                JsonParser parser = new JsonParser();
-	     
-	                JsonElement element = parser.parse(result.toString());
-	     
-	                if (element.isJsonObject()) {
-	                    JsonObject obj = element.getAsJsonObject();
-	                    if (obj.get("error") == null) {
-	                      //  String translatedText = obj.get("data").getAsJsonObject()//.
-	                        //get("translations").getAsJsonArray().
-	                        //get(0).getAsJsonObject().
-	                        //get("translatedText").getAsString();
-	                        //return 
-	                        //System.out.println(translatedText);
-	                    //    text = translatedText.toString();
-	                    }
-	                }
-	     
-	                if (conn.getResponseCode() != 200) {
-	                    System.err.println(result);
-	                }
-	     
-	            } catch (IOException | JsonSyntaxException ex) {
-	                System.err.println(ex.getMessage());
-	            }
-	                 //return null;
-	       
-	
+	        JsonObject obj=null;
+            StringBuilder result = new StringBuilder();
+            try {
+            	 String Output;
+                String encodedText = URLEncoder.encode(text, "UTF-8");
+                String urlStr = "https://www.googleapis.com/language/translate/v2?key=" + key + "&q=" + encodedText + "&target=" + to + "&source=" + from;
+     
+                URL url = new URL(urlStr);
+     
+                HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
+                InputStream stream;
+                if (conn.getResponseCode() == 200) //success
+                {
+                    stream = conn.getInputStream();
+                    //System.out.println(stream);
+                } else
+                    stream = conn.getErrorStream();
+                
+                BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    result.append(line);
+                                   
+                }
+                System.out.println(result.toString());
+                
+                
+                JsonParser parser = new JsonParser();
+     
+                JsonElement element = parser.parse(result.toString());
+     
+                if (element.isJsonObject()) {
+                   obj = element.getAsJsonObject();
+                    if (obj.get("error") == null) {
+                      //  String translatedText = obj.get("data").getAsJsonObject()//.
+                        //get("translations").getAsJsonArray().
+                        //get(0).getAsJsonObject().
+                        //get("translatedText").getAsString();
+                        //return 
+                        //System.out.println(translatedText);
+                    //    text = translatedText.toString();
+                    }
+                }
+     
+                if (conn.getResponseCode() != 200) {
+                    System.err.println(result);
+                }
+     
+            } catch (IOException | JsonSyntaxException ex) {
+                System.err.println(ex.getMessage());
+            }
+                 //return null;
+       
 
-		String respns = " "+result ;
-		return Response.status(200).entity(respns).build();
-	  }
+    JsonObject resp = new JsonObject();
+    resp.addProperty("Access-Control-Allow-Origin", "*");
+    resp.addProperty("Access-Control-Allow-Methods", "GET");
+    resp.addProperty("Access-Control-Allow-Headers", "Content-Type");
+    JsonArray respns=new JsonArray();
+	 respns.add(resp);
+	 respns.add(obj);
+	 System.out.println(respns.toString());
+	
+	return Response.status(200).entity(respns.toString()).build();
+}
 
 	@Path("{f}")
 	  @GET
@@ -108,7 +119,7 @@ public class Utranslate {
 	        String to="en";
 	        String from="de";
 	       
-	       
+	        JsonObject obj=null;
 	            StringBuilder result = new StringBuilder();
 	            try {
 	            	 String Output;
@@ -140,7 +151,7 @@ public class Utranslate {
 	                JsonElement element = parser.parse(result.toString());
 	     
 	                if (element.isJsonObject()) {
-	                    JsonObject obj = element.getAsJsonObject();
+	                   obj = element.getAsJsonObject();
 	                    if (obj.get("error") == null) {
 	                      //  String translatedText = obj.get("data").getAsJsonObject()//.
 	                        //get("translations").getAsJsonArray().
@@ -162,9 +173,15 @@ public class Utranslate {
 	                 //return null;
 	       
 	
-
-		String respns = " "+result ;
+        JsonObject resp = new JsonObject();
+        resp.addProperty("Access-Control-Allow-Origin", "*");
+        resp.addProperty("Access-Control-Allow-Methods", "GET");
+        resp.addProperty("Access-Control-Allow-Headers", "Content-Type");
+        JsonArray respns=new JsonArray();
+		 respns.add(resp);
+		 respns.add(obj);
+		 System.out.println(respns.toString());
 		
-		return Response.status(200).entity(respns).build();
+		return Response.status(200).entity(respns.toString()).build();
 	}
 }

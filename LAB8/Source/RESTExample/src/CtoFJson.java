@@ -13,13 +13,16 @@ import org.json.JSONObject;
  
 @Path("/dtoejson")
 public class CtoFJson {
+	
+	Double Euros ;
+	Double Dollars;
+	
 	@GET
 	@Produces("application/json")
 	  public Response convertDtoE() throws JSONException {
 
 		JSONObject jsonObject = new JSONObject();
-		Double Euros ;
-		Double Dollars= 20.0;
+		Dollars= 20.0;
 		Euros= ((Dollars)*0.92); 
 		jsonObject.put("Dollars", Dollars);
 		jsonObject.put("Euros", Euros); 
@@ -31,7 +34,7 @@ public class CtoFJson {
 	@Path("{c}")
 	@GET
 	@Produces("application/json")
-	public Response convertCtoFfromInput(@PathParam("c") Double c) {
+	public Response convertDtoEfromInput(@PathParam("c") Double c) {
 		Double Euros ;
 		Double Dollars=c;
 		JSONObject jsonObject = new JSONObject();
