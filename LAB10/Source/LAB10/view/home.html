@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab10</title>
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".dropdown1").hover(
+                    function() {
+                        $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true,true).slideDown("400");
+                        $(this).toggleClass('open');
+                    },
+                    function() {
+                        $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true,true).slideUp("400");
+                        $(this).toggleClass('open');
+                    }
+            );
+        });
+        $('#myModal').on('shown.bs.modal', function () {
+            $('#myInput').focus()
+        })
+    </script>
+    <script src="../js/hme.js"></script>
+    <script src="../js/service.js"></script>
+<link rel="stylesheet" href="../css/hmcss.css">
+</head>
+<body>
+<div class="container"  ng-app="lab10" ng-controller="homeController" data-ng-init="init()">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid" >
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Welcome {{name}}</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right ">
+
+
+                    <li class="dropdown mega-dropdown ">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home </a>
+                        <ul class="dropdown-menu mega-dropdown-menu">
+                            <li class="dropdown1 col-sm-3">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown Products</a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="#">Profile</a></li>
+                                    <li><a href="../mod.html">Change Password</a></li>
+                                    <li><a href="#">Add Contact</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">view Profile</a></li>
+                                </ul>
+                            </li>
+                            <li class="col-sm-3"> Home
+
+                            </li>
+                            <li class="col-sm-3">About
+
+                            </li>
+                            <li class="col-sm-3">Contact Us
+
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown mega-dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About</a>
+                        <ul class="dropdown-menu mega-dropdown-menu">
+                            <li class="dropdown1 col-sm-3">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown Customers</a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="#">Profile</a></li>
+                                    <li><a href="../mod.html">Change Password</a></li>
+                                    <li><a href="#">Add Contact</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">view Profile</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="col-sm-3"> Home
+
+                            </li>
+                            <li class="col-sm-3">About
+
+                            </li>
+                            <li class="col-sm-3">Contact Us
+
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="dropdown mega-dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contact </a>
+                        <ul class="dropdown-menu mega-dropdown-menu">
+                            <li class="dropdown1 col-sm-3">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown Vechiles </a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="#">Profile</a></li>
+                                    <li><a href="../mod.html">Change Password</a></li>
+                                    <li><a href="#">Add Contact</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">view Profile</a></li>
+                                </ul>
+                            </li>
+                            <li class="col-sm-3"> Home
+
+                            </li>
+                            <li class="col-sm-3">About
+
+                            </li>
+                            <li class="col-sm-3">Contact Us
+
+                            </li>
+                        </ul>
+                    </li>
+
+
+
+
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li class="dropdown1">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown </a>
+                        <ul class="dropdown-menu pull-right ">
+                            <li><button style="width: 200px; height: 40px" class="btn btn-info  btn-lg" >Profile</button></li>
+                            <li><button style="width: 200px; height: 25px" class="btn btn-info  btn-sm" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-edit"></span> Password</button></li>
+                            <li ><button style="width: 200px; height: 25px" class="btn btn-info btn-sm" >Add Contact</button></li>
+                            <li role="separator" class="divider"></li>
+
+                            <li><button style="width: 200px; height: 25px" class="btn btn-danger btn-sm" >Logout</button></li>
+
+                        </ul>
+                    </li>
+                </ul>
+                    </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-lock"></span> New Password</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="password" ng-model="upassword" placeholder="New Password"/>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+        <div class="row" >
+            <br><br><br>
+            <div class="col-xs-12 col-md-7 col-md-offset-2 col-sm-8 col-sm-offset-2 ">
+                <!-- image-preview-filename input [CUT FROM HERE]-->
+                <div class="input-group image-preview">
+                    <input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
+                <span class="input-group-btn">
+                    <!-- image-preview-clear button -->
+                    <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
+                        <span class="glyphicon glyphicon-remove"></span> Clear
+                    </button>
+                    <!-- image-preview-input -->
+                    <div class="btn btn-default image-preview-input">
+                        <span class="glyphicon glyphicon-folder-open"></span>
+                        <span class="image-preview-input-title">Browse</span>
+                        <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview"/> <!-- rename it -->
+                    </div>
+                </span>
+                </div><!-- /input-group image-preview [TO HERE]-->
+            </div>
+        </div>
+    <div class="row"><br>
+        <div class="col col-md-3 col-md-offset-4 ">
+            <button class="btn btn-success btn-m">Upload</button> <button class="btn btn-info btn-m">Load</button> <button class="btn btn-danger btn-m">Delete</button>
+
+        </div>
+    </div>
+    </div>
+
+
+<script src="../js/hme.js"></script>
+<script>
+
+    $(document).on('click', '#close-preview', function(){
+        $('.image-preview').popover('hide');
+        // Hover befor close the preview
+        $('.image-preview').hover(
+                function () {
+                    $('.image-preview').popover('show');
+                },
+                function () {
+                    $('.image-preview').popover('hide');
+                }
+        );
+    });
+
+    $(function() {
+        // Create the close button
+        var closebtn = $('<button/>', {
+            type:"button",
+            text: 'x',
+            id: 'close-preview',
+            style: 'font-size: initial;',
+        });
+        closebtn.attr("class","close pull-right");
+        // Set the popover default content
+        $('.image-preview').popover({
+            trigger:'manual',
+            html:true,
+            title: "<strong>Preview</strong>"+$(closebtn)[0].outerHTML,
+            content: "There's no image",
+            placement:'bottom'
+        });
+        // Clear event
+        $('.image-preview-clear').click(function(){
+            $('.image-preview').attr("data-content","").popover('hide');
+            $('.image-preview-filename').val("");
+            $('.image-preview-clear').hide();
+            $('.image-preview-input input:file').val("");
+            $(".image-preview-input-title").text("Browse");
+        });
+        // Create the preview image
+        $(".image-preview-input input:file").change(function (){
+            var img = $('<img/>', {
+                id: 'dynamic',
+                width:250,
+                height:200
+            });
+            var file = this.files[0];
+            var reader = new FileReader();
+            // Set preview image into the popover data-content
+            reader.onload = function (e) {
+                $(".image-preview-input-title").text("Change");
+                $(".image-preview-clear").show();
+                $(".image-preview-filename").val(file.name);
+                console.log(file.name)
+                img.attr('src', e.target.result);
+                $(".image-preview").attr("data-content",$(img)[0].outerHTML).popover("show");
+            }
+            reader.readAsDataURL(file);
+        });
+    });
+</script>
+</body>
+</html>

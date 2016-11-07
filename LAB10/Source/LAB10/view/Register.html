@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab10</title>
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <style>
+        body{
+            background-color: #474646;
+        }
+    </style>
+    <link href="../signup.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+<body ng-app="aselab">
+<div class="container"  ng-controller="regCont">
+    <div class="row"><br></div>
+    <div class="row"><br><br><br></div>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Fill all the details</h3>
+                </div>
+                <div class="panel-body">
+                    <form class="contact_form"  style="background: #FFF; width:100%;" ng-submit="insertData()" name="contact_form">
+                        <h1>Sign Up Here</h1>
+                        <ul>
+                            <li style="width:100%;">
+                                <input type="text" class="textbox1" name="fname" placeholder="First Name" ng-model="formData.fname" required />
+                                <span class="form_hint">Enter a First Name</span>
+
+                            </li>
+                            <li style="width:100%;">
+                                <input type="text" class="textbox1" name="lname" ng-model="formData.lname" placeholder="Last Name" required />
+                                <span class="form_hint">Enter a Last Name</span>
+
+                            </li>
+                            <li style="width:100%;">
+                                <input type="email" class="textbox1" name="email" ng-model="formData.email" placeholder="example@mail.com" required />
+                                <span class="form_hint">Enter a valid email</span>
+
+                            </li>
+                            <li style="width:100%;">
+                                <input type="password" name="password" class="textbox2" ng-model="formData.password" placeholder="password">
+
+                            </li>
+                            <li style="width:100%;">
+                                <input type="password" name="cpassword" class="textbox2" ng-model="formData.cpassword" placeholder="confirm password">
+
+                            </li>
+                        </ul>
+                        <input type="submit" name="Sign In" style="width:100%;" value="Sign In"/>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="http://code.angularjs.org/1.1.1/angular-resource.js"></script>
+<script type="text/javascript" src="http://code.angularjs.org/1.1.1/angular-sanitize.js"></script>
+<script type="text/javascript" src="../js/reg.js"></script>
+</body>
+</html>
