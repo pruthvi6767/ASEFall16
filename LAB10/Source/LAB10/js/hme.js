@@ -5,53 +5,68 @@
 /**
  * Created by user on 23/10/2016.
  */
-var myapp = angular.module('lab10',['userInfoService']);
-myapp.run(function ($http) {
-    // Sends this header with any AJAX request
-    $http.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
-    // Send this header only in post requests. Specifies you are sending a JSON object
-    $http.defaults.headers.post['dataType'] = 'json'
-});
+var img2fire = angular.module('img2fire', ['firebase', 'angular.filter']);
+
+img2fire.controller("base64Ctrl", function($scope, $firebaseArray) {
+
+    var ref = new Firebase("https://goglesgn.firebaseio.com/");
+
+    var img = new Firebase("https://goglesgn.firebaseio.com/images");
+    $scope.imgs = $firebaseArray(img);
+
+    var _validFileExtensions = [".jpg", ".jpeg", ".bmp", ".gif", ".png"];
+    $scope.uploadFile = function() {
+        var sFileName = $("#nameImg").val();
+        if (sFileName.length > 0) {
+            var blnValid = false;
+            for (var j = 0; j < _validFileExtensions.length; j++) {
+                var sCurExtension = _validFileExtensions[j];
+                if (sFileName.substr(sFileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
+                    blnValid = true;
+                    var filesSelected = document.getElementById("nameImg").files;
+                    if (filesSelected.length > 0) {
+                        var fileToLoad = filesSelected[0];
+
+                        var fileReader = new FileReader();
+
+                        fileReader.onload = function(fileLoadedEvent) {
+                            var textAreaFileContents = document.getElementById(
+                                "textAreaFileContents"
+                            );
 
 
-myapp.controller('homeController',function($scope,$http,userdata, $rootScope){
-    $scope.getData = function(){
-        //console.log($scope.formData.lname);
-        //console.log($scope.formData.fname);
-        // console.log($scope.formData.email);
-        //console.log($scope.formData.password);
-        //console.log($scope.formData.cpassword);
-        var dataParams = {
-            // 'fname' : $scope.fname,
-            //'lname' : $scope.lname,
-            'email' : $scope.email,
-            //'pw' : $scope.pw
-        };
-        var config = {
-            headers : {
-                'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+                            $scope.imgs.$add({
+                                date: Firebase.ServerValue.TIMESTAMP,
+                                base64: fileLoadedEvent.target.result
+                            });
+                        };
+
+                        fileReader.readAsDataURL(fileToLoad);
+                    }
+                    break;
+                }
+            }
+
+            if (!blnValid) {
+                alert('File is not valid');
+                return false;
             }
         }
-        var req = $http.get("http://localhost:8081/login/"+$scope.email);
-        req.success(function(data, status, headers, config) {
-            //$scope.message = data;
-            //console.log(data);
-            //$scope.username= data.fname + data.lname;
-            //$scope.pwd= data.password;
-            userdata.square(data);
 
-            //window.location.href="home.html";
-
-        });
-        req.error(function(data, status, headers, config) {
-            alert( "failure message: " + JSON.stringify({data: data}));
-        });
-    };
-    $scope.init= function() {
-        var loguser = userdata.get();
-        console.log(loguser);
-        $scope.name = loguser.name;
-        $scope.psw = loguser.password;
-        console.log($rootScope.id)
+        return true;
     }
+
+    $scope.deleteimg = function(imgid) {
+        var r = confirm("Do you want to remove this image ?");
+        if (r == true) {
+            $scope.imgs.forEach(function(childSnapshot) {
+                if (childSnapshot.$id == imgid) {
+                    $scope.imgs.$remove(childSnapshot).then(function(ref) {
+                        ref.key() === childSnapshot.$id; // true
+                    });
+                }
+            });
+        }
+    }
+
 });
