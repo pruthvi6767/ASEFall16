@@ -1,0 +1,38 @@
+<ion-view style="" class=" " id="page6" title="Signup">
+  <ion-nav-buttons side="right">
+    <button class="button button-icon button-clear ion-person-add"></button>
+  </ion-nav-buttons>
+  <ion-content class="has-header" padding="true"
+               style="background: url(img/bg-img.jpg) center; background-size: cover;">
+    <br/>
+    <div class="app-icon"></div>
+    <br/>
+    <form name="signupForm" class="list " id="signup-form2" style="border-radius: 10px;background-color: #f2f2f2">
+      <form>
+        <ion-list id="signup-list3">
+          <label class="item item-input" id="login-input3">
+            <i class="icon ion-person"></i>&nbsp;&nbsp; <input type="text" placeholder="Name" ng-model="user.name">
+          </label>
+
+          <label class="item item-input" id="login-input4">
+            <i class="icon ion-ios-telephone"></i>&nbsp;&nbsp; <input type="tel" ng-model="user.phone"
+                                                                      placeholder="Phone">
+          </label>
+          <label class="item item-input" id="login-input5">
+            <i class="icon ion-email"></i>&nbsp;&nbsp; <input type="email" ng-model="user.email" placeholder="Email">
+          </label>
+          <label class="item item-input" id="login-input6">
+            <i class="icon ion-locked"></i>&nbsp;&nbsp; <input type="password" ng-model="user.password"
+                                                               placeholder="Password">
+          </label>
+        </ion-list>
+      </form>
+      <button ng-click="signupEmail(signupForm,user)"
+              class=" button button-assertive  button-block  icon-left ion-person-add "
+              style="border-radius:0px 0px 0px 0px;background-color: #009689;color: whitesmoke" id="signup-button3"></i>
+        SIGN
+        UP WITH YOUR EMAIL
+      </button>
+    </form>
+  </ion-content>
+</ion-view>

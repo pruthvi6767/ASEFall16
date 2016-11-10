@@ -1,0 +1,42 @@
+<ion-view style="" class=" " id="page90" title="Learn with Logos">
+  <ion-nav-buttons side="right">
+    <button class="button button-icon button-clear ion-happy-outline"></button>
+  </ion-nav-buttons>
+  <ion-content padding="true" style="background: url(img/image1.jpg) no-repeat center;background-size:cover;"
+               class="has-header">
+
+
+
+    <input type="search" placeholder="Type Company Domain" ng-model="compnay" id="clogo">
+    <br>
+    <button  style="font-weight:600;color:#2436B9;font-size:13px;border-radius:1px 1px 1px 1px;"
+            class="button button-balanced button-small icon ion-search" ng-click="squery()">
+    </button>
+
+    <div class="list card" id="page-card21">
+      <div class=" item item-image">
+        <img src="{{logourl}}" width="" height="100" style="display: block; margin-left: auto;">
+      </div>
+    </div>
+    <div class="list card" id="page-card22">
+      <div id="page-markdown3" style="margin-top:0px;color:#1ECB61;">
+        <p>
+        <h4 align="center">Im Info:</h4>
+        &nbsp;
+        <strong> NAME:</strong>{{Name}}<br>
+        &nbsp;
+        <strong> CATEGORY:</strong>{{category}}
+        <br>
+        &nbsp;
+        <strong> WEBSITE:</strong>{{website}}
+        <br>
+        &nbsp;
+        <strong> FOUNDED</strong>: {{founded}}
+        <br>
+        &nbsp;
+        <strong> SERVICES</strong>: {{services}}</p>
+      </div>
+    </div>
+    <div></div>
+  </ion-content>
+</ion-view>

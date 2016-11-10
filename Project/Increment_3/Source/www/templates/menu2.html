@@ -1,0 +1,56 @@
+<ion-view style="background-color:black" id="page7" title="Welcome to IM WORD" xmlns="http://www.w3.org/1999/html">
+  <ion-nav-buttons side="right">
+    <button class="button button-icon button-clear ion-home"></button>
+  </ion-nav-buttons>
+  <ion-content class="has-header" padding="false" ng-init="loadMenu()">
+
+    <hscroller>
+      <hcard ng-repeat="item in items" index="{{$index}}" desc="{{item.desc}}" image="{{item.image}}"></hcard>
+    </hscroller>
+    <table style="background-color: black">
+      <tr>
+      <tr>
+        <div class="list card">
+          <div class="item item-image">
+            <img src="img/brain_words.jpg" height="300px">
+          </div>
+        </div>
+      </tr>
+      <tr>
+        <div class="list card" >
+          <div class="item item-avatar" align="center">
+            <img src="img/word.jpg" >
+            <h2>Play with words</h2>
+          </div>
+        </div>
+      </tr>
+      <tr>
+        <div class="list card" >
+          <div class="item item-avatar">
+            <img src="img/Logo.png">
+            <h2>Play with Logos</h2>
+          </div>
+        </div>
+      </tr>
+
+      <tr>
+        <div class="list card" >
+          <div class="item item-avatar">
+            <img src="img/language.png">
+            <h2>Learn Language</h2>
+          </div>
+        </div>
+      </tr>
+      <tr>
+        <div class="list card" >
+          <div class="item item-avatar">
+            <img src="img/graph.png">
+            <h2>User Analysis</h2>
+          </div>
+        </div>
+      </tr>
+      </tr>
+    </table>
+
+  </ion-content>
+</ion-view>
