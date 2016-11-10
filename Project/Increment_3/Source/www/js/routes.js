@@ -59,6 +59,25 @@ angular.module('app.routes', [])
         controller: 'settingsCtrl'
       })
 
+      .state('wlevel1', {
+        url: '/page25',
+        templateUrl: 'templates/wordlevel1.html',
+        controller: 'wlevel1Ctrl'
+      })
+
+
+      .state('words', {
+        url: '/page18',
+        templateUrl: 'templates/words.html',
+        controller: 'wordsCtrl'
+      })
+
+      .state('level', {
+        url: '/page21',
+        templateUrl: 'templates/level.html',
+        controller: 'levelCtrl'
+      })
+
       .state('tabsController.forgotPassword', {
         url: '/page15',
         views: {

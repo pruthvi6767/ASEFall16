@@ -7,8 +7,63 @@
     <hscroller>
       <hcard ng-repeat="item in items" index="{{$index}}" desc="{{item.desc}}" image="{{item.image}}"></hcard>
     </hscroller>
-    <table style="background-color: black">
-      <tr>
+    <!--<style>
+/*
+      margin-bottom: 20px;  max-width: 100%; overflow: auto; overflow-x: auto; overflow-y: auto"
+*/
+      .user-html
+      {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        line-height: 1.5;
+        overflow: auto;
+          [
+            overflow-x: auto;
+            overflow-y: auto;
+            ]
+
+      }
+      * {
+        box-sizing: border-box;
+              }
+      div
+      {
+        display: block;
+
+      }
+      table
+      {
+        display: table;
+        border-collapse: separate;
+        border-spacing: 2px;
+        -webkit-border-horizontal-spacing: 2px;
+        -webkit-border-vertical-spacing: 2px;
+        border-color: grey;
+      }
+      tbody
+      {
+        display: table-row-group;
+        vertical-align: middle;
+        border-color: inherit;
+
+      }
+      tr
+      {
+       display: table-row;
+        vertical-align: inherit;
+        border-color: inherit;
+      }
+      td
+      {
+        display: table-cell;
+        vertical-align: inherit;
+      }
+
+      </style>-->
+   <!--<div class = "user-html">
+    <table>
+      <tbody>
+
       <tr>
         <div class="list card">
           <div class="item item-image">
@@ -17,40 +72,82 @@
         </div>
       </tr>
       <tr>
-        <div class="list card" >
-          <div class="item item-avatar" align="center">
-            <img src="img/word.jpg" >
-            <h2>Play with words</h2>
-          </div>
-        </div>
+&lt;!&ndash;
+        <td style="width: 50px; height: 50px;">
+          <a href = "index.html?_ijt=9dtcpep2h99ct3m4k31a93b6q7#/page21.html" rel = "nofollow"> <img src="img/word.jpg" ng-click="goLevel()" style="width: 202px; height: 125px;"></a>
+        </td>
+
+        <td>
+          <a href = "#" rel = "nofollow"> <img src="img/word.jpg" style="width: 202px; height: 125px;"></a>
+        </td>
+
+
       </tr>
       <tr>
+        <td style="width: 50px; height: 50px;">
+          <a href = "words.html" rel = "nofollow"> <img src="img/word.jpg" style="width: 202px; height: 125px;"></a>
+        </td>
+
+        <td>
+          <a href = "#" rel = "nofollow"> <img src="img/word.jpg" style="width: 202px; height: 125px;"></a>
+        </td>
+      </tr>
+      </tbody>
+      </table>
+     </div>&ndash;&gt;-->
+
+
+
+    <table style="background-color: black">
+      <tbody>
+      <tr>
+
         <div class="list card" >
-          <div class="item item-avatar">
+          <div class="item item-image">
+            <img src="img/brain_words.jpg" width="1000px"; height="300px">
+          </div>
+        </div>
+
+        </tr>
+      <tr>
+        <td>
+        <div class="list card"  style="width: 190px; height: 115px;">
+          <div class="item item-bg-image" >
+            <img src="img/word.jpg" ng-click="goLevel()" >
+            <h2 style="color: #4d4d4d">Play with words</h2>
+          </div>
+        </div>
+        </td>
+
+
+      <td>
+        <div class="list card" style="width: 190px; height: 115px;" >
+          <div class="item item-bg-image">
             <img src="img/Logo.png">
-            <h2>Play with Logos</h2>
+            <h2 style="color: #4d4d4d">Play with </h2>
           </div>
         </div>
-      </tr>
-
+      </td>
+     </tr>
       <tr>
-        <div class="list card" >
-          <div class="item item-avatar">
-            <img src="img/language.png">
-            <h2>Learn Language</h2>
+      <td>
+        <div class="list card" style="width: 190px; height: 115px;" >
+          <div class="item item-bg-image">
+            <img src="img/language.png" >
+            <h2 style="color: #4d4d4d">Language</h2>
           </div>
         </div>
-      </tr>
-      <tr>
-        <div class="list card" >
-          <div class="item item-avatar">
+      </td>
+      <td>
+        <div class="list card"  style="width: 190px; height: 115px;" >
+          <div class="item item-bg-image">
             <img src="img/graph.png">
-            <h2>User Analysis</h2>
+            <h2 style="color: #4d4d4d">User Analysis</h2>
           </div>
         </div>
+      </td>
       </tr>
-      </tr>
+      </tbody>
     </table>
-
   </ion-content>
 </ion-view>

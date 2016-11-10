@@ -79,10 +79,6 @@ angular.module('app.controllers', ['firebase'])
             console.log( $scope.pimage);
             $scope.showProfile=true;
 
-            $ionicSideMenuDelegate.canDragContent(true);  // Sets up the sideMenu dragable
-            $rootScope.extras = true;
-            sharedUtils.hideLoading();
-            $state.go('menu2', {}, {location: "replace"});
 
           }, function(error) {
             alert("Error: " + error);
@@ -186,9 +182,9 @@ angular.module('app.controllers', ['firebase'])
       $rootScope.extras = true;
 
       $scope.squery = function () {
-        //console.log($scope.valuesearch);
-        var url = "http://api.fullcontact.com/v2/company/lookup.json?apiKey=c9119ae197c5e22a"+"&domain=" + document.getElementsByName(company);
-          $http.get(url)
+        console.log($scope.valuesearch);
+        var url = 'http://api.fullcontact.com/v2/company/lookup.json?apiKey=c9119ae197c5e22a&domain=cerner.com'//+($scope.valuesearch)
+        $http.get(url)
           .success(function (response) {
             console.log(response);
             $scope.Name = response.organization.name;
@@ -249,6 +245,14 @@ angular.module('app.controllers', ['firebase'])
     $scope.addToCart = function (item) {
       sharedCartService.add(item);
     };
+
+
+
+    $scope.goLevel = function()
+    {
+      $state.go('level', {}, {location: "replace"});
+    };
+
 
   })
   .controller('settingsCtrl', function ($scope, $rootScope, fireBaseData, $firebaseObject,
@@ -409,5 +413,27 @@ angular.module('app.controllers', ['firebase'])
       $window.location.reload(true);
       console.log("CANCEL");
     }
+
+  })
+  .controller('wordsCtrl', function ($scope, $rootScope, $ionicSideMenuDelegate, fireBaseData, $state,
+                                     $ionicHistory, $firebaseArray, sharedCartService, sharedUtils) {
+    $scope.goLevel1 = function()
+    {
+      $state.go('wlevel1', {}, {location: "replace"});
+    };
+
+  })
+  .controller('levelCtrl', function ($scope, $rootScope, $ionicSideMenuDelegate, fireBaseData, $state,
+                                     $ionicHistory, $firebaseArray, sharedCartService, sharedUtils) {
+    $scope.goWord = function()
+    {
+      $state.go('words', {}, {location: "replace"});
+    };
+
+  })
+
+  .controller('wlevel1Ctrl', function ($scope, $rootScope, $ionicSideMenuDelegate, fireBaseData, $state,
+                                     $ionicHistory, $firebaseArray, sharedCartService, sharedUtils) {
+
 
   })
