@@ -253,6 +253,11 @@ angular.module('app.controllers', ['firebase'])
       $state.go('level', {}, {location: "replace"});
     };
 
+    $scope.goLevelLogo = function()
+    {
+      $state.go('levellogo', {}, {location: "replace"});
+    };
+
 
   })
   .controller('settingsCtrl', function ($scope, $rootScope, fireBaseData, $firebaseObject,
@@ -428,6 +433,15 @@ angular.module('app.controllers', ['firebase'])
     $scope.goWord = function()
     {
       $state.go('words', {}, {location: "replace"});
+    };
+
+  })
+
+  .controller('levelLogoCtrl', function ($scope, $rootScope, $ionicSideMenuDelegate, fireBaseData, $state,
+                                     $ionicHistory, $firebaseArray, sharedCartService, sharedUtils) {
+    $scope.goLogo = function()
+    {
+      $state.go('logoLevel', {}, {location: "replace"});
     };
 
   })

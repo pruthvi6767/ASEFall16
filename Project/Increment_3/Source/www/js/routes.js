@@ -78,6 +78,19 @@ angular.module('app.routes', [])
         controller: 'levelCtrl'
       })
 
+      .state('levellogo', {
+        url: '/page22',
+        templateUrl: 'templates/levelLogo.html',
+        controller: 'levelLogoCtrl'
+      })
+
+      .state('logoLevel', {
+        url: '/page25',
+        templateUrl: 'templates/logoLevel.html',
+        controller: 'levelLogoCtrl'
+      })
+
+
       .state('tabsController.forgotPassword', {
         url: '/page15',
         views: {
