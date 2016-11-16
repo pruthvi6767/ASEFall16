@@ -1,0 +1,88 @@
+<!doctype html>
+<head>
+</script>
+	<title>
+		Reset your password
+	</title>
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<style type="text/css">
+body
+{
+    background: url('http://sunsolartechno.com/images/background-img.jpg') fixed;
+    background-size: cover;
+    padding: 50px;
+    margin: 0;
+}
+
+#mainDiv{
+		width:600px;
+		#background-color:red;
+		margin:0 auto;
+		font-family:helvetica;
+		font-size:1.2em;
+	}
+input{
+		width:250px;
+		height:30px;
+		padding:5px;
+		border-radius:5px;
+		font-size:1em;
+		border:1px solid grey;
+		margin-bottom:10px;
+	}
+	label{
+		padding-top:10px;
+		width:200px;
+		float:left;
+		color:#333333;
+		
+	
+	}
+#SubmitButton{
+		margin-top:10px;
+		margin-left:200px;
+		height:45px;
+		width:265px;	
+		font-size:1em;
+		color:#FFD8CB;
+	    background-color:#68A253;
+	}
+
+</style>
+</head>
+<body bgcolor="#EDF0F5">
+<h1 align="center" style="color:black" >Update Your Password<!DOCTYPE html"></h1>
+
+	<div id ="mainDiv">
+
+		<label for ="uname"> UserName</label>
+		<input type = "text" name = "uname" id = "uname" />
+		<label for ="password">New Password</label>
+		<input type="password" name="password" id="npassword"/>
+		<label for ="password">Confirm Password</label>
+		<input type="password" name="password" id="cpassword"/>
+		<input id="SubmitButton" type ="submit" value="UPDATE"/>
+
+	</div>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script>
+	    
+        
+		$("#SubmitButton").click(function(event){
+			$.ajax({
+                type: "PUT",
+                url: 'https://api.mongolab.com/api/1/databases/santhosh/collections/ASELab?apiKey=bB6BENQTSNIjw-3bWpUq_dXMqdrNJ9tC={"username":$("#uname").val()}',
+                dataType: "json",
+				contentType: "application/json",
+				data: JSON.stringify({
+				    "$set" : { "password" : $("#npassword").val() } }),
+				success: function (data) {
+								alert("The password has been updated");
+								window.location.href ="file:///C:/Users/Santhosh/Desktop/Login.html"	
+							}
+				});
+		});   
+		
+	</script>
+</body>
