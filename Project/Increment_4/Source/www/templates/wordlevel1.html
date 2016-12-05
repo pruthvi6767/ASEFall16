@@ -1,0 +1,18 @@
+<ion-view style="background-color:black" id="page7" title="Level 1" xmlns="http://www.w3.org/1999/html">
+  <ion-nav-buttons side="right">
+    <button class="button button-icon button-clear ion-home"></button>
+  </ion-nav-buttons>
+  <ion-content class="has-header" padding="false" ng-init="golevel1()" style="background: url(img/bk.png) no-repeat center;background-size:cover;">
+    <br/>
+    <div align="center">
+      <img src="img/apple.jpg" align="center" width="300px"  height="250px">
+      <br/><br/>
+      <input type="text" name="word" placeholder="Find name of image.." class="input-a" style="width: 300px;text-align: center;height: 50px;font-size: large">
+      <BR/>
+      <p style="font-style: italic;font-family: Cambria;font-size: 20px">Hint: This keeps you away from doctor</p>
+      <br/>
+      <img src="img/crt.jpg" align="center" width="80px"; height="80px" ng-click="goWord()"> <br/>
+      <img src="img/next.png" align="right" width="80px"; height="80px" ng-click="goWord()">
+    </div>
+  </ion-content>
+</ion-view>
