@@ -80,7 +80,7 @@ angular.module('app.routes', [])
 
       .state('levellogo', {
         url: '/page22',
-        templateUrl: 'templates/levelLogo.html',
+        templateUrl: 'templates/logoLevel.html',
         controller: 'levelLogoCtrl'
       })
 

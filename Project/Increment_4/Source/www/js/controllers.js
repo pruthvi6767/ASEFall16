@@ -340,9 +340,9 @@ angular.module('app.controllers', ['firebase'])
 
       $rootScope.extras = true;
 
-      $scope.squery = function () {
+      $scope.squery = function (data) {
         console.log($scope.valuesearch);
-        var url = 'http://api.fullcontact.com/v2/company/lookup.json?apiKey=c9119ae197c5e22a&domain=umkc.edu'//+($scope.valuesearch)
+        var url = 'http://api.fullcontact.com/v2/company/lookup.json?apiKey=c9119ae197c5e22a&domain='+data//+($scope.valuesearch)
         $http.get(url)
           .success(function (response) {
             console.log(response);
@@ -351,7 +351,7 @@ angular.module('app.controllers', ['firebase'])
             $scope.website = response.website;
             $scope.category = response.category[0].name;
             $scope.services = response.organization.keywords[0];
-            $scope.founded = response.founded;
+            $scope.founded = response.organization.founded;
 
           })
       }
@@ -533,11 +533,30 @@ angular.module('app.controllers', ['firebase'])
 
   })
 
-  .controller('levelLogoCtrl', function ($scope, $rootScope, $ionicSideMenuDelegate, fireBaseData, $state,
+  .controller('levelLogoCtrl', function ($scope,logoservice, $rootScope, $ionicSideMenuDelegate, fireBaseData, $state,
                                          $ionicHistory, $firebaseArray, sharedCartService, sharedUtils) {
-    $scope.goLogo = function () {
+
+    init();
+
+    function init() {
+      logoservice.getFeedbackPaged().then(function(data){
+
+       // $scope.logoimages=data;
+
+
+
+        console.log(data);
+        $scope.images=Object.data[0].0.result;
+        console.log($scope.images);
+
+
+
+      });
+
+    }
+    /*$scope.goLogo = function () {
       $state.go('logoLevel', {}, {location: "replace"});
-    };
+    };*/
 
   })
 

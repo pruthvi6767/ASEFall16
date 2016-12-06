@@ -1,44 +1,28 @@
-<ion-view style="background-color:black" id="page7" title="Play with Logos" xmlns="http://www.w3.org/1999/html">
-  <ion-nav-buttons side="right">
-    <button class="button button-icon button-clear ion-happy-outline"></button>
-  </ion-nav-buttons>
-  <ion-content class="has-header" padding="false" ng-init="goLogo()">
 
 
-    <table style="background-color: black">
-      <tr>
-      <tr>
-        <div>
-          <div class="item item-image">
-            <img src="img/logo.jpg" height="250px">
-          </div>
-        </div>
-      </tr>
-      </tr>
-    </table>
-
-    <div class="list card">
-      <div class="item item-thumbnail-right" align="center">
-        <img src="img/steps.jpg">
-        <h1><img src="https://maxcdn.icons8.com/Color/PNG/24/Media_Controls/play-24.png" title="Play" width="30"
-                 ng-click="goLevel1()">Level 1</h1>
-
-      </div>
+<ion-view title=" LOGO QUIZ">
+  <ion-content padding="true" class="has-header">
+    <br>
+    &nbsp;
+    <div ng-init="images()" style="margin: 0px; line-height: 250px; background-color: rgb(232, 235, 239); text-align: center;">
+      <i class="icon ion-image" style="font-size: 64px; color: rgb(136, 136, 136); vertical-align: middle;"></i>
     </div>
+    &nbsp;
+    &nbsp;&nbsp;
 
-    <div class="list card" align="right">
-      <div class="item item-thumbnail-right" align="right">
-        <img src="img/steps.jpg">
-        <h1><img src="https://maxcdn.icons8.com/Color/PNG/24/Media_Controls/play-24.png" title="Play" width="30"
-                 ng-click="goLevel1()">Level 2</h1>
-      </div>
-    </div>
-    <div class="list card" align="right">
-      <div class="item item-thumbnail-right" align="right">
-        <img src="img/steps.jpg">
-        <h1><img src="https://maxcdn.icons8.com/Color/PNG/24/Media_Controls/play-24.png" title="Play" width="30"
-                 ng-click="goLevel1()">Level 3</h1>
-      </div>
+    <form id="level1-form18" class="list">
+      <label class="item item-input" id="level1-input23">
+        <input style="background-color: lightgrey; color: #dd4b39" type="text" placeholder="Answer Here" autofocus >
+      </label>
+      <ion-item class="item-icon-left item-icon-right balanced" id="level1-list-item3">
+        <i class="icon No Icon"></i>
+        <span class="item-note">Correct</span>
+        <i class="icon ion-checkmark-circled"></i>
+      </ion-item>
+    </form>
+    <div id="level1-button-bar1" class="button-bar">
+      <button id="level1-button20" style="font-size:26px;border-radius:20px 20px 20px 20px;" class="button button-energized  button-block">Submit</button>
+      <button id="level1-button21" style="font-size:26px;border-radius:20px 20px 20px 20px;" class="button button-royal  button-block">Next</button>
     </div>
   </ion-content>
 </ion-view>
