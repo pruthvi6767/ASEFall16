@@ -65,11 +65,22 @@ angular.module('app.routes', [])
         controller: 'wlevel1Ctrl'
       })
 
+      .state('wlevelAdult1', {
+        url: '/page67',
+        templateUrl: 'templates/wordAdultlevel1.html',
+        controller: 'wlevelAdult1Ctrl'
+      })
 
       .state('words', {
         url: '/page18',
         templateUrl: 'templates/words.html',
         controller: 'wordsCtrl'
+      })
+
+      .state('wordsAdult', {
+        url: '/page77',
+        templateUrl: 'templates/wordsAdult.html',
+        controller: 'wordsAdultCtrl'
       })
 
       .state('level', {
@@ -78,10 +89,34 @@ angular.module('app.routes', [])
         controller: 'levelCtrl'
       })
 
-      .state('levellogo', {
+      .state('charts', {
         url: '/page22',
-        templateUrl: 'templates/logoLevel.html',
+        templateUrl: 'templates/visualization.html',
+        controller: 'chartsCtrl'
+      })
+
+      .state('word12', {
+        url: '/page79',
+        templateUrl: 'templates/wordlevel12.html',
+        controller: 'wordlevel12Ctrl'
+      })
+
+      .state('wordAdult12', {
+        url: '/page99',
+        templateUrl: 'templates/wordlevelAdult12.html',
+        controller: 'wordlevelAdult12Ctrl'
+      })
+
+      .state('levellogo', {
+        url: '/page30',
+        templateUrl: 'templates/levelLogo.html',
         controller: 'levelLogoCtrl'
+      })
+
+      .state('levellogo2', {
+        url: '/page29',
+        templateUrl: 'templates/levelLogo2.html',
+        controller: 'levelLogo2Ctrl'
       })
 
       .state('logoLevel', {

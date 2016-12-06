@@ -1,6 +1,6 @@
 angular.module('app.controllers', ['firebase'])
 
-  .controller('loginCtrl', function ($scope, $firebaseAuth, $rootScope, $ionicHistory, sharedUtils, $state, $ionicSideMenuDelegate) {
+  .controller('loginCtrl', function ($scope, $firebaseAuth, $rootScope, $ionicHistory, sharedUtils, $state, $ionicSideMenuDelegate, $cordovaOauth, $http) {
     $rootScope.extras = false;  // For hiding the side bar and nav icon
 
     // When the user logs out and reaches login page,
@@ -27,41 +27,6 @@ angular.module('app.controllers', ['firebase'])
       }
     });
 
-    $scope.oauthLogin = function (provider) {
-      if (provider == 'facebook') {
-        Auth.loginWithFacebook()
-          .then(function (authData) {
-            $rootScope.clog('oauthLogin');
-          })
-          .catch(function (error) {
-            $rootScope.clog('Oops something went wrong. Please try again later');
-            console.dir(error);
-          });
-      }
-      else if (provider == 'google') {
-        Auth.loginWithGoogle()
-          .then(function (authData) {
-            $rootScope.clog('oauthLogin');
-          })
-          .catch(function (error) {
-            $rootScope.clog('Oops something went wrong. Please try again later');
-            $rootScope.clog(error);
-          });
-      }
-      else if (provider == 'twitter') {
-        Auth.loginWithTwitter()
-          .then(function (authData) {
-            $rootScope.clog('oauthLogin');
-          })
-          .catch(function (error) {
-            $rootScope.clog('Oops something went wrong. Please try again later');
-            $rootScope.clog(error);
-          });
-      }
-      else {
-        $rootScope.hideLoading();
-      }
-    };
 
     $scope.loginEmail = function (formName, cred) {
       if (formName.$valid) {  // Check if the form data is valid or not
@@ -78,7 +43,7 @@ angular.module('app.controllers', ['firebase'])
           },
           function (error) {
             sharedUtils.hideLoading();
-            sharedUtils.showAlert("Please note", "Entered Email id/Password is valid");
+            sharedUtils.showAlert("Please note", "Entered Email id/Password is not valid");
           }
         );
       } else {
@@ -95,7 +60,6 @@ angular.module('app.controllers', ['firebase'])
         }
       )
     };
-
     $scope.facebookLogin= function(){
       console.log("clicked");
       $cordovaOauth.facebook("380495482340209", ["email"]).then(function(result) {
@@ -103,10 +67,10 @@ angular.module('app.controllers', ['firebase'])
         $scope.showProfile = false;
 
         $http.get("https://graph.facebook.com/me", {
-          params: {
-            access_token: result.access_token
-          }
-        })
+            params: {
+              access_token: result.access_token
+            }
+          })
           .then(function(res) {
             console.log(res);
             $scope.displayName=res.data.name;
@@ -134,10 +98,10 @@ angular.module('app.controllers', ['firebase'])
           $scope.showProfile = false;
 
           $http.get("https://www.googleapis.com/plus/v1/people/me", {
-            params: {
-              access_token: result.access_token
-            }
-          })
+              params: {
+                access_token: result.access_token
+              }
+            })
             .then(function (res) {
               $scope.showProfile = true;
               $scope.details = res.data; //
@@ -162,6 +126,7 @@ angular.module('app.controllers', ['firebase'])
 
     };
   })
+
 
   .controller('signupCtrl', function ($scope, $rootScope, sharedUtils, $ionicSideMenuDelegate,
                                       $state, fireBaseData, $ionicHistory) {
@@ -196,7 +161,8 @@ angular.module('app.controllers', ['firebase'])
           $ionicSideMenuDelegate.canDragContent(true);  // Sets up the sideMenu dragable
           $rootScope.extras = true;
           sharedUtils.hideLoading();
-          $state.go('menu2', {}, {location: "replace"});
+          //$state.go('tabsController.login', {}, {location: "replace"});
+          window.location.href='login.html'
 
         }, function (error) {
           sharedUtils.hideLoading();
@@ -207,8 +173,8 @@ angular.module('app.controllers', ['firebase'])
         sharedUtils.showAlert("Please note", "Entered data is not valid");
       }
     }
-  })
 
+  })
 
   .controller('menu2Ctrl', function ($scope, $rootScope, $ionicSideMenuDelegate, fireBaseData, $state,
                                      $ionicHistory, $firebaseArray, sharedCartService, sharedUtils) {
@@ -261,6 +227,9 @@ angular.module('app.controllers', ['firebase'])
 
     $scope.goLevel = function () {
       $state.go('level', {}, {location: "replace"});
+    };
+    $scope.gocharts = function () {
+      $state.go('charts', {}, {location: "replace"});
     };
 
     $scope.goLevelLogo = function () {
@@ -342,7 +311,7 @@ angular.module('app.controllers', ['firebase'])
 
       $scope.squery = function (data) {
         console.log($scope.valuesearch);
-        var url = 'http://api.fullcontact.com/v2/company/lookup.json?apiKey=c9119ae197c5e22a&domain='+data//+($scope.valuesearch)
+        var url = 'http://api.fullcontact.com/v2/company/lookup.json?apiKey=c9119ae197c5e22a&domain=' + data//+($scope.valuesearch)
         $http.get(url)
           .success(function (response) {
             console.log(response);
@@ -525,53 +494,266 @@ angular.module('app.controllers', ['firebase'])
     };
 
   })
+
+  .controller('wordsAdultCtrl', function ($scope, $rootScope, $ionicSideMenuDelegate, fireBaseData, $state,
+                                          $ionicHistory, $firebaseArray, sharedCartService, sharedUtils) {
+    $scope.goLevelAdult1 = function () {
+      $state.go('wlevelAdult1', {}, {location: "replace"});
+    };
+
+  })
+
   .controller('levelCtrl', function ($scope, $rootScope, $ionicSideMenuDelegate, fireBaseData, $state,
                                      $ionicHistory, $firebaseArray, sharedCartService, sharedUtils) {
     $scope.goWord = function () {
       $state.go('words', {}, {location: "replace"});
     };
 
+    $scope.goWordAdult = function () {
+      $state.go('wordsAdult', {}, {location: "replace"});
+    };
+
   })
 
-  .controller('levelLogoCtrl', function ($scope,logoservice, $rootScope, $ionicSideMenuDelegate, fireBaseData, $state,
+  .controller('chartsCtrl', function ($scope, $rootScope, $ionicSideMenuDelegate, fireBaseData, $state,
+                                      $ionicHistory, $firebaseArray, sharedCartService, sharedUtils) {
+
+    $scope.goViz1 = function () {
+      $scope.viz1 = true;
+      $scope.viz2 = false;
+    }
+
+    $scope.goViz2 = function () {
+      $scope.viz1 = false;
+      $scope.viz2 = true;
+    }
+
+  })
+
+  .controller('levelLogo2Ctrl', function ($scope, logoservice, $rootScope, $ionicSideMenuDelegate, fireBaseData, $state,
+                                          $ionicHistory, $firebaseArray, sharedCartService, sharedUtils) {
+    init();
+    function init() {
+      logoservice.getFeedbackPaged().then(function (data) {
+
+        // $scope.logoimages=data;
+
+
+        console.log(data);
+        $scope.images = data.data[0].result;
+
+        //$scope.images=[];
+        /*for( var i=0; i<data.length;i++){
+         $scope.images[i]=data.data[0].result[i].url;
+
+         }*/
+
+        console.log($scope.images);
+
+      });
+
+    }
+
+    /*$scope.goLogo = function () {
+     $state.go('logoLevel', {}, {location: "replace"});
+     };*/
+    $scope.hde = true;
+    $scope.isCorrect = function (value) {
+
+      if (value == 'Master Card' || value == 'master card') {
+        $scope.hde = true;
+        return true;
+      }
+      else {
+
+        return false;
+      }
+    }
+
+    $scope.isNotCorrect = function (value) {
+
+      if (value == ' ' || value == 'undefined') {
+        return true;
+        //$scope.hde=false;
+      }
+      else {
+        $scope.hde = false;
+        return false;
+      }
+    }
+
+  })
+
+  .controller('levelLogoCtrl', function ($scope, logoservice, $rootScope, $ionicSideMenuDelegate, fireBaseData, $state,
                                          $ionicHistory, $firebaseArray, sharedCartService, sharedUtils) {
 
     init();
 
     function init() {
-      logoservice.getFeedbackPaged().then(function(data){
+      logoservice.getFeedbackPaged().then(function (data) {
 
-       // $scope.logoimages=data;
-
+        // $scope.logoimages=data;
 
 
         console.log(data);
-        $scope.images=Object.data[0].0.result;
-        console.log($scope.images);
+        $scope.images = data.data[0].result;
 
+        //$scope.images=[];
+        /*for( var i=0; i<data.length;i++){
+         $scope.images[i]=data.data[0].result[i].url;
+
+         }*/
+
+        console.log($scope.images);
 
 
       });
 
     }
+
     /*$scope.goLogo = function () {
-      $state.go('logoLevel', {}, {location: "replace"});
-    };*/
+     $state.go('logoLevel', {}, {location: "replace"});
+     };*/
+    $scope.hde = true;
+    $scope.isCorrect = function (value) {
+
+      if (value == 'american express' || value == 'American express') {
+        $scope.hde = true;
+        return true;
+      }
+      else {
+
+        return false;
+      }
+    }
+
+    $scope.isNotCorrect = function (value) {
+
+      if (value == ' ' || value == 'undefined') {
+        return true;
+        //$scope.hde=false;
+      }
+      else {
+        $scope.hde = false;
+        return false;
+      }
+    }
+
+    $scope.goLevelLogo2 = function () {
+      $state.go('levellogo2', {}, {location: "replace"});
+    };
 
   })
 
+
   .controller('wlevel1Ctrl', function ($scope, $rootScope, $ionicSideMenuDelegate, fireBaseData, $state,
                                        $ionicHistory, $firebaseArray, sharedCartService, sharedUtils) {
+    $scope.goWord12 = function () {
+      $state.go('word12', {}, {location: "replace"});
+    };
 
-    $scope.goCheck = function () {
-      console.log($scope.word);
-      if ($scope.word = 'Apple') {
-          $scope.wordurl = "crt.JPG";
-        console.log($scope.wordurl);
+
+    $scope.isCorrect = function (value) {
+
+      if (value == 'Apple' || value == 'apple') {
+        return true;
+      }
+      else {
+
+        return false;
+      }
     }
-    else{
-        $scope.wordurl = "wrong.JPG";
+
+    $scope.isNotCorrect = function (value) {
+
+      if (value == 'Mango' || value == 'mongo') {
+        return true;
+      }
+      else {
+
+        return false;
       }
     }
 
   })
+
+
+  .controller('wordlevel12Ctrl', function ($scope, $rootScope, $ionicSideMenuDelegate, fireBaseData, $state,
+                                           $ionicHistory, $firebaseArray, sharedCartService, sharedUtils) {
+
+    $scope.isCorrect = function (value) {
+
+      if (value == 'Canopy' || value == 'canopy') {
+        return true;
+      }
+      else {
+
+        return false;
+      }
+    }
+    $scope.isNotCorrect = function (value) {
+
+      if (value == 'Cloth' || value == 'cloth') {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+  })
+
+  .controller('wlevelAdult1Ctrl', function ($scope, $rootScope, $ionicSideMenuDelegate, fireBaseData, $state,
+                                            $ionicHistory, $firebaseArray, sharedCartService, sharedUtils) {
+    $scope.goWordAdult12 = function () {
+      $state.go('wordAdult12', {}, {location: "replace"});
+    };
+
+
+    $scope.isCorrect = function (value) {
+
+      if (value == 'Cubicle' || value == 'cubicle') {
+        return true;
+      }
+      else {
+
+        return false;
+      }
+    }
+
+    $scope.isNotCorrect = function (value) {
+
+      if (value == 'Table' || value == 'table') {
+        return true;
+      }
+      else {
+
+        return false;
+      }
+    }
+
+  })
+
+  .controller('wordlevelAdult12Ctrl', function ($scope, $rootScope, $ionicSideMenuDelegate, fireBaseData, $state,
+                                                $ionicHistory, $firebaseArray, sharedCartService, sharedUtils) {
+
+    $scope.isCorrect = function (value) {
+
+      if (value == 'Ascetic' || value == 'ascetic') {
+        return true;
+      }
+      else {
+
+        return false;
+      }
+    }
+    $scope.isNotCorrect = function (value) {
+
+      if (value == 'Tree' || value == 'tree') {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+  })
+

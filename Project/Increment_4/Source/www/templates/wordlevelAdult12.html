@@ -1,21 +1,21 @@
-<ion-view style="background-color:black" id="page7" title="Level 1" xmlns="http://www.w3.org/1999/html">
+<ion-view style="background-color:black" id="page99" title="Level 1" xmlns="http://www.w3.org/1999/html">
   <ion-nav-buttons side="right">
     <button class="button button-icon button-clear ion-home"></button>
   </ion-nav-buttons>
   <ion-content class="has-header" padding="false" ng-init="golevel1()"
                style="background: url(img/bk.png) no-repeat center;background-size:cover;">
     <div align="center">
-      <img src="img/apple.jpg" align="center" width="420px" height="340px">
+      <img src="img/ascetic.PNG" ng-model="word" align="center" width="420px" height="340px">
       <br/><br/>
       <input type="text" ng-model="word" placeholder="Find name of image.." class="input-a"
              style="width: 300px;text-align: center;height: 40px;font-size: large">
       <br/>
-      <p style="font-style: italic;font-family: Cambria;font-size: medium;color: black">Hint: This keeps you away from
-        doctor</p>
-      <!--<button class="button-c" ng-click="goFunc(word)">Submit your answer</button>-->
+      <p style="font-style: italic;font-family: Cambria;font-size: medium;color: black">Hint: A person who practices severe self-discipline and abstention</p>
+      <!--<button class="button-c">Submit your answer</button>
+      <!--<br/><br/> <a href="https://en.wikipedia.org/wiki/Canopy" style="font-size: medium;font-style: italic;font-family: Cambria;color: black"><b>Click here for more info. on image</b></a><br/>-->
       <div ng-show="isCorrect(word)">
         <img src="img/crt.JPG" width="50px" align="center"><br/>
-        <a href="https://en.wikipedia.org/wiki/Apple"
+        <a href="https://en.wikipedia.org/wiki/Asceticism"
            style="font-size: medium;font-style: italic;font-family: Cambria;color: black"><b>Click here for
           more info. on image</b></a><br/>
         <img src="img/next.png" width="50px" align="right" ng-click="goWord12()">
@@ -24,7 +24,7 @@
         <img src="img/wrong.JPG" width="60px" align="center"><br/>
         <p style="color: black;font-style: italic">Don't worry try again!!!!!</p>
       </div>
-      <!--<img src="img/next.png" width="50px"  ng-click="goWord2()">-->
+
     </div>
   </ion-content>
 </ion-view>

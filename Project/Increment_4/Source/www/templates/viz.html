@@ -1,0 +1,35 @@
+<html>
+<head>
+  <title>Google Charts Tutorial</title>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {packages: ['corechart']});
+  </script>
+</head>
+<body>
+<div id="container" style="width: 550px; height: 400px; margin: 0 auto"></div>
+<script language="JavaScript">
+  function drawChart() {
+    // Define the chart to be drawn.
+    var data = google.visualization.arrayToDataTable([
+      ['Day', 'Words Learnt'],
+      ['Monday',  10],
+      ['Tuesday',  20],
+      ['Wednesday',  3],
+      ['Thursaday',  30],
+      ['Friday',  25],
+        ['Saturday',  40],
+        ['Sunday',  5]
+    ]);
+
+    var options = {
+      title: 'Population (in millions)'
+    };
+
+    // Instantiate and draw the chart.
+    var chart = new google.visualization.BarChart(document.getElementById('container'));
+    chart.draw(data, options);
+  }
+  google.charts.setOnLoadCallback(drawChart);
+</script>
+</body>

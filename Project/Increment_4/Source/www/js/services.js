@@ -158,6 +158,9 @@ angular.module('app.services', [])
   }])
 
 
+  
+
+
   .factory('BlankFactory', [function () {
 
   }])
@@ -168,11 +171,11 @@ angular.module('app.services', [])
 
 
 
-.service('logoservice', function ($http) {
-  this.getFeedbackPaged = function () {
-    return $http.get('https://api.mongolab.com/api/1/databases/aseproject/collections/logo?apiKey=qCMyIcOWXvRL5ZbujWuYNB2pgJTmaU7k');
-  };
-});
+  .service('logoservice', function ($http) {
+    this.getFeedbackPaged = function () {
+      return $http.get('https://api.mongolab.com/api/1/databases/aseproject/collections/logo?apiKey=qCMyIcOWXvRL5ZbujWuYNB2pgJTmaU7k');
+    };
+  });
 
 
 
