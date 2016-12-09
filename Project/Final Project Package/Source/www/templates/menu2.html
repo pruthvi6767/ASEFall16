@@ -1,0 +1,57 @@
+<ion-view style="background-color:black" id="page7" title="Welcome to IM WORD" xmlns="http://www.w3.org/1999/html">
+  <ion-nav-buttons side="right">
+    <button class="button button-icon button-clear ion-home"></button>
+  </ion-nav-buttons>
+  <ion-content class="has-header" padding="false" ng-init="loadMenu()" style="background-color:lightgoldenrodyellow;">
+
+    <hscroller>
+      <hcard ng-repeat="item in items" index="{{$index}}" desc="{{item.desc}}" image="{{item.image}}"></hcard>
+    </hscroller>
+
+    <table style="background-color: lightgoldenrodyellow">
+      <tbody>
+      <tr>
+        <div class="list card" >
+          <div class="item item-image">
+            <img src="img/brain_words.jpg" width="1000px"; height="250px">
+          </div>
+        </div>
+      </tr>
+      <br/>
+      <tr>
+        <td>
+          <div class="list card"  style="width: 190px; height: 140px;">
+            <div class="item item-bg-image" >
+              <img src="img/logoword.png" ng-click="goLevel()" >
+            </div>
+          </div>
+        </td>
+        <td>
+          <div class="list card" style="width: 190px; height: 140px;">
+            <div class="item item-bg-image">
+              <img src="img/Logo.png" ng-click="goLevelLogo()">
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="list card"  style="width: 190px; height: 140px;">
+            <div class="item item-bg-image" >
+              <img src="img/language.png" ng-click="goLevel()" >
+            </div>
+          </div>
+        </td>
+
+        <td>
+          <div class="list card" style="width: 190px; height: 140px;">
+            <div class="item item-bg-image">
+              <img src="img/graph.png" ng-click="gocharts()">
+            </div>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </ion-content>
+</ion-view>

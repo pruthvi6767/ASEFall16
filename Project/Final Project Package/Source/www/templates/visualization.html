@@ -1,0 +1,24 @@
+<ion-view style="background-color:black" id="page22" title="User Analysis" xmlns="http://www.w3.org/1999/html">
+  <ion-nav-buttons side="right">
+    <button class="button button-icon button-clear ion-happy-outline"></button>
+  </ion-nav-buttons>
+  <ion-content class="has-header" padding="false" ng-init="goLevel()" style="background-color: lightgoldenrodyellow">
+    <br/>
+    <div align="center">
+
+      <button class="button-b" ng-click="goViz1()">Level Visualization</button>
+      <button class="button-b" ng-click="goViz2()">Current Week Visualization</button>
+
+<br/><br/><br/>
+     <div ng-show="viz1">
+      <img src="img/viz-1.JPG" align="center" width="350px"; height="250px" ng-click="goWord()"><br/>
+       <p style="color: black;font-family: Cambria;font-size: 20px">This visualization helps the user to compare the levels played and also the time took for each query </p>
+     </div>
+      <div ng-show="viz2">
+      <img src="img/viz-2.JPG" align="center" width="350px"; height="250px" ng-click="goWord()">
+        <br/>
+        <p style="color: black;font-family: Cambria;font-size: 20px">This visualization helps the user to track the daily status of a week on how many words he learnt</p>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

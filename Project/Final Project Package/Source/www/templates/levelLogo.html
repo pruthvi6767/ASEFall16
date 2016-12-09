@@ -1,0 +1,34 @@
+<ion-view title="Play with Logos" id="page30">
+  <ion-nav-buttons side="right">
+    <button class="button button-icon button-clear ion-home"></button>
+  </ion-nav-buttons>
+  <ion-content padding="true" class="has-header">
+    <br>
+    &nbsp;
+    <div  >
+      <img src="img/quiz/amex.jpg" width="380px" height=300px">
+    </div>
+    &nbsp;
+    &nbsp;&nbsp;
+
+    <form id="level1-form18" class="list">
+      <label class="item item-input" id="level1-input23" >
+        <input style="background-color: lightgrey; color: #dd4b39" type="text" placeholder="Answer Here" autofocus  ng-model="lname">
+      </label>
+      <ion-item ng-show="isCorrect(lname)" class="item-icon-left item-icon-right balanced" id="level1-list-item3">
+        <i class="icon No Icon"></i>
+        <span class="item-stable">Correct</span>
+        <i class="icon ion-checkmark-circled"></i>
+      </ion-item>
+      <ion-item ng-hide="hde" class="item-icon-left item-icon-right balanced" id="level1-list-item4">
+        <i class="icon No Icon"></i>
+        <span class="item-note">Incorrect Answer</span>
+        <i class="icon ion-alert"></i>
+      </ion-item>
+    </form>
+    <div id="level1-button-bar1" class="button-bar">
+      <button id="level1-button20"  style="font-size:26px;border-radius:20px 20px 20px 20px;" class="button button-energized  button-block" ng-hide="isCorrect(lname)" ng-click="isNotCorrect(lname)">Submit</button>
+      <button id="level1-button21"ng-show="isCorrect(lname)" style="font-size:26px;border-radius:20px 20px 20px 20px;" class="button button-royal  button-block" ng-click="goLevelLogo2()">Next</button>
+    </div>
+  </ion-content>
+</ion-view>
