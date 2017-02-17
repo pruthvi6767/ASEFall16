@@ -546,8 +546,16 @@ angular.module('app.controllers', ['firebase'])
 
 
         console.log(data);
-        $scope.images=Object.data[0].0.result;
+        $scope.images=data.data[0].result;
+
+        //$scope.images=[];
+        /*for( var i=0; i<data.length;i++){
+          $scope.images[i]=data.data[0].result[i].url;
+
+        }*/
+
         console.log($scope.images);
+
 
 
 
@@ -557,6 +565,88 @@ angular.module('app.controllers', ['firebase'])
     /*$scope.goLogo = function () {
       $state.go('logoLevel', {}, {location: "replace"});
     };*/
+    $scope.hde=true;
+    $scope.isCorrect = function (value) {
+
+      if (value == 'american express' || value == 'American express') {
+        $scope.hde=true;
+        return true;
+      }
+      else {
+
+        return false;
+      }
+    }
+
+    $scope.isNotCorrect = function (value) {
+
+      if (value==' ' || value=='undefined') {
+        return true;
+        //$scope.hde=false;
+      }
+      else {
+        $scope.hde=false;
+        return false;
+      }
+    }
+
+    $scope.goLevelLogo2 = function () {
+      $state.go('levellogo2', {}, {location: "replace"});
+    };
+
+  })
+
+  .controller('levelLogo2Ctrl', function ($scope,logoservice, $rootScope, $ionicSideMenuDelegate, fireBaseData, $state,
+                                         $ionicHistory, $firebaseArray, sharedCartService, sharedUtils) {
+    init();
+    function init() {
+      logoservice.getFeedbackPaged().then(function(data){
+
+        // $scope.logoimages=data;
+
+
+
+        console.log(data);
+        $scope.images=data.data[0].result;
+
+        //$scope.images=[];
+        /*for( var i=0; i<data.length;i++){
+         $scope.images[i]=data.data[0].result[i].url;
+
+         }*/
+
+        console.log($scope.images);
+
+      });
+
+    }
+    /*$scope.goLogo = function () {
+     $state.go('logoLevel', {}, {location: "replace"});
+     };*/
+    $scope.hde=true;
+    $scope.isCorrect = function (value) {
+
+      if (value == 'Master Card' || value == 'master card') {
+        $scope.hde=true;
+        return true;
+      }
+      else {
+
+        return false;
+      }
+    }
+
+    $scope.isNotCorrect = function (value) {
+
+      if (value==' ' || value=='undefined') {
+        return true;
+        //$scope.hde=false;
+      }
+      else {
+        $scope.hde=false;
+        return false;
+      }
+    }
 
   })
 
